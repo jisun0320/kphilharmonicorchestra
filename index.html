@@ -1,0 +1,1065 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>케이필하모닉오케스트라 | K-Philharmonic Orchestra</title>
+<meta name="description" content="2018년 창단, 좋은 음악으로 청중의, 청중에 의한, 청중을 위한 무대를 만드는 케이필하모닉오케스트라 공식 홈페이지">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<style>
+:root{
+  --ink:#111;--ink2:#55555a;--line:#e3e2de;--bg:#fff;--soft:#f4f3ef;--accent:#4a22f4;--accent-d:#3414c9;
+  --r:999px;--pad:clamp(18px,3.2vw,44px);--max:1480px;
+  --font:"Pretendard Variable",Pretendard,-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic",sans-serif;
+  --ease:cubic-bezier(.2,.7,.1,1);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:var(--font);color:var(--ink);background:var(--bg);font-size:15.5px;line-height:1.6;letter-spacing:-.01em;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body.lock{overflow:hidden}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--pad)}
+
+/* ---------- loader ---------- */
+#loader{position:fixed;inset:0;z-index:1000;background:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:26px;transition:transform .9s var(--ease) .1s}
+#loader.done{transform:translateY(-100%)}
+#loader .mark{width:74px;opacity:0;transform:scale(.8);animation:pop .7s var(--ease) .1s forwards;mix-blend-mode:multiply}
+.lt{display:flex;flex-direction:column;align-items:center;gap:2px;font-weight:700;font-size:clamp(22px,4vw,42px);line-height:1.08;letter-spacing:-.03em}
+.lt .lr{display:flex;overflow:hidden;padding:.06em 0}
+.lt span{display:inline-block;transform:translateY(110%);animation:rise .8s var(--ease) forwards}
+.lbar{width:min(260px,60vw);height:2px;background:var(--line);overflow:hidden;border-radius:2px}
+.lbar i{display:block;height:100%;width:100%;background:var(--accent);transform:translateX(-100%);animation:bar 1.9s var(--ease) .2s forwards}
+@keyframes rise{to{transform:none}}
+@keyframes pop{to{opacity:1;transform:none}}
+@keyframes bar{to{transform:none}}
+
+/* ---------- header ---------- */
+.top{font-size:14px;display:flex;justify-content:space-between;align-items:center;padding:12px 0 0;color:var(--ink)}
+.top b{font-weight:700}
+.top a{margin-left:18px;opacity:.75}
+.top a:hover{opacity:1}
+header.site{background:#fff;position:relative;z-index:50}
+.brand{display:flex;align-items:center;gap:14px;padding:16px 0 14px;width:max-content}
+.brand img{height:46px;width:auto;mix-blend-mode:multiply}
+.brand .nm{font-weight:700;font-size:clamp(17px,1.7vw,23px);line-height:1.02;letter-spacing:-.035em}
+.nav{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.92);backdrop-filter:saturate(1.4) blur(14px);-webkit-backdrop-filter:saturate(1.4) blur(14px);transition:box-shadow .3s}
+.nav.stuck{box-shadow:0 1px 0 var(--line)}
+.nav .in{display:flex;align-items:center;gap:6px;padding:10px 0 12px}
+.pill{display:inline-flex;align-items:center;gap:10px;height:40px;padding:0 18px;border-radius:var(--r);font-weight:600;font-size:15px;white-space:nowrap;transition:background .25s,color .25s,transform .25s var(--ease),border-color .25s}
+.pill:active{transform:scale(.97)}
+.pill.dark{background:var(--ink);color:#fff}
+.pill.dark:hover{background:#333}
+.pill.ghost:hover,.pill.ghost.on{background:var(--soft)}
+.pill.ghost.on{box-shadow:inset 0 0 0 1px var(--ink)}
+.pill.white{background:#fff;color:var(--ink)}
+.pill.white:hover{background:#eee}
+.pill.accent{background:var(--accent);color:#fff}
+.pill.accent:hover{background:var(--accent-d)}
+.pill.line{box-shadow:inset 0 0 0 1px var(--ink)}
+.pill.line:hover{background:var(--ink);color:#fff}
+.burger{width:18px;height:10px;position:relative}
+.burger::before,.burger::after{content:"";position:absolute;left:0;right:0;height:2px;background:currentColor;border-radius:2px}
+.burger::before{top:0}.burger::after{bottom:0}
+.nav .sp{flex:1}
+.nav .back{display:none}
+.nav .back.show{display:inline-flex}
+.quick{display:flex;gap:2px}
+@media(max-width:720px){
+  .top{display:none}.brand img{height:42px}.brand{padding:12px 0 6px}
+  .quick .pill{padding:0 13px;font-size:15px}
+  .pill{height:42px;padding:0 17px;font-size:15px}
+  
+}
+
+/* ---------- menu overlay ---------- */
+#menu{position:fixed;inset:0;z-index:200;background:var(--ink);color:#fff;clip-path:circle(0 at 60px 60px);transition:clip-path .7s var(--ease);overflow:auto;visibility:hidden}
+#menu.open{clip-path:circle(150% at 60px 60px);visibility:visible}
+#menu .hd{display:flex;justify-content:space-between;align-items:center;padding:22px 0}
+#menu .grid{display:grid;grid-template-columns:repeat(5,1fr);gap:36px 28px;padding:4vh 0 8vh}
+#menu h4{font-size:clamp(19px,1.6vw,23px);font-weight:700;margin-bottom:12px;padding-bottom:12px;border-bottom:1px solid rgba(255,255,255,.22);letter-spacing:-.02em}#menu h4 a:hover{color:#a996ff}
+#menu li{list-style:none;overflow:hidden}
+#menu li a{display:inline-block;font-size:clamp(17px,1.4vw,20px);font-weight:500;letter-spacing:-.02em;line-height:1.9;transform:translateY(105%);transition:transform .7s var(--ease),color .2s}
+#menu.open li a{transform:none}
+#menu li a:hover{color:#a996ff}
+#menu .ft{border-top:1px solid rgba(255,255,255,.18);padding:22px 0 40px;display:flex;flex-wrap:wrap;gap:8px 28px;font-size:14px;opacity:.75}
+@media(max-width:1000px){#menu .grid{grid-template-columns:1fr 1fr 1fr}}@media(max-width:700px){#menu .grid{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){#menu .grid{grid-template-columns:1fr;gap:26px}}
+
+/* ---------- page / animation ---------- */
+main{min-height:60vh}
+.page{animation:pageIn .6s var(--ease)}
+@keyframes pageIn{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+.rv{opacity:0;transform:translateY(28px);transition:opacity .8s var(--ease),transform .8s var(--ease);transition-delay:var(--d,0s)}
+.rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}.rv{opacity:1;transform:none}}
+
+/* ---------- hero ---------- */
+.hero{position:relative;height:min(78vh,820px);min-height:460px;overflow:hidden;background:#000;color:#fff}
+.hero .sl{position:absolute;inset:0;opacity:0;transition:opacity 1.2s ease}
+.hero .sl.on{opacity:1;z-index:1}
+.hero .sl img{width:100%;height:100%;object-fit:cover;transform:scale(1.08);transition:transform 8s linear}
+.hero .sl.on img{transform:scale(1)}
+.hero .sl::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.05) 30%,rgba(0,0,0,.72))}
+.hero .cap{position:absolute;left:0;right:0;bottom:0;z-index:2;padding-bottom:clamp(26px,4vw,48px)}
+.hero h1{font-size:clamp(26px,3.4vw,50px);font-weight:700;letter-spacing:-.04em;line-height:1.05}
+.hero h1 small{display:block;font-weight:400;font-size:.62em;letter-spacing:-.03em;margin-top:.12em}
+.hero .cta{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.hero .txt{overflow:hidden}
+.hero .txt>*{animation:rise .9s var(--ease) both}
+.hero .dots{position:absolute;right:var(--pad);bottom:clamp(26px,4vw,48px);z-index:3;display:flex;gap:8px}
+.hero .dots button{width:34px;height:4px;border-radius:4px;background:rgba(255,255,255,.35);overflow:hidden;position:relative}
+.hero .dots button.on::after{content:"";position:absolute;inset:0;background:#fff;transform-origin:left;animation:prog 6s linear}
+@keyframes prog{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@media(max-width:720px){.hero{height:68vh}.hero .dots{top:18px;bottom:auto}}
+
+/* ---------- sections ---------- */
+section.blk{padding:clamp(44px,5.5vw,84px) 0}
+section.blk.soft{background:var(--soft)}
+.sh{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;margin-bottom:clamp(22px,3vw,40px)}
+.sh h2{font-size:clamp(21px,2vw,28px);font-weight:700;letter-spacing:-.04em;line-height:1.1}
+.sh p{color:var(--ink2);margin-top:6px}
+.more{font-weight:600;display:inline-flex;gap:8px;align-items:center;white-space:nowrap;border-bottom:2px solid var(--ink);padding-bottom:2px}
+.more:hover{color:var(--accent);border-color:var(--accent)}
+.ph{padding-top:clamp(28px,3.4vw,48px);padding-bottom:clamp(14px,2vw,24px)}
+.ph .crumb{font-size:13px;color:var(--ink2);margin-bottom:10px}
+.ph h1{font-size:clamp(24px,2.5vw,34px);font-weight:700;letter-spacing:-.035em;line-height:1.2;padding-bottom:16px;border-bottom:1px solid var(--line)}
+.ph .lead{font-size:15.5px;color:var(--ink2);max-width:760px;margin-top:14px}
+.tabs{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0 28px}
+.tabs .pill{height:42px;font-size:15px;box-shadow:inset 0 0 0 1px var(--line)}
+.tabs .pill.on{background:var(--ink);color:#fff;box-shadow:none}
+
+/* ---------- performance cards ---------- */
+.grid5{display:grid;grid-template-columns:repeat(5,1fr);gap:clamp(22px,2.4vw,40px) clamp(12px,1.5vw,24px)}
+@media(max-width:1100px){.grid5{grid-template-columns:repeat(4,1fr)}}
+@media(max-width:860px){.grid5{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:560px){.grid5{grid-template-columns:repeat(2,1fr)}}
+.grid5.fix{grid-template-columns:repeat(5,1fr)}
+@media(max-width:860px){.grid5.fix{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:560px){.grid5.fix{grid-template-columns:repeat(2,1fr)}}
+.card{display:block;cursor:pointer}
+.card .im{position:relative;aspect-ratio:5/7;border-radius:14px;overflow:hidden;background:var(--soft)}
+.card .im img{width:100%;height:100%;object-fit:cover;transition:transform .9s var(--ease)}
+.card:hover .im img{transform:scale(1.05)}
+.card .im .st{position:absolute;top:10px;left:10px;font-size:12px;font-weight:700;padding:5px 10px;border-radius:99px;background:#fff;color:var(--ink)}
+.card .im .st.live{background:var(--accent);color:#fff}
+.np{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:space-between;padding:14px;color:#fff;background:linear-gradient(150deg,#1b1b22,#2a2350 60%,var(--accent))}
+.np.b{background:linear-gradient(150deg,#111,#3a3a40)}
+.np.c{background:linear-gradient(160deg,#0f1c3a,#274690)}
+.np .y{font-size:12px;opacity:.7;letter-spacing:.08em}
+.np .t{font-weight:700;font-size:clamp(13px,1.1vw,16px);line-height:1.25;letter-spacing:-.03em;word-break:keep-all}
+.np .k{font-size:10px;letter-spacing:.14em;opacity:.6}
+.card .d{font-size:13px;color:var(--accent);font-weight:700;margin-top:12px}
+.card .t{font-weight:700;font-size:clamp(14px,1.05vw,16px);line-height:1.3;letter-spacing:-.03em;margin-top:3px;word-break:keep-all}
+.card .v{font-size:13px;color:var(--ink2);margin-top:4px;word-break:keep-all}
+.empty{border:1px dashed #c9c8c3;border-radius:18px;padding:clamp(28px,4vw,54px);text-align:center;color:var(--ink2);background:#fff}
+.empty b{display:block;color:var(--ink);font-size:17px;margin-bottom:6px}
+.pager{display:flex;justify-content:center;gap:6px;margin-top:clamp(34px,4vw,56px)}
+.pager button{min-width:44px;height:44px;border-radius:99px;font-weight:600;box-shadow:inset 0 0 0 1px var(--line);padding:0 12px}
+.pager button.on{background:var(--ink);color:#fff;box-shadow:none}
+.pager button:hover:not(.on):not(:disabled){background:var(--soft)}
+.pager button:disabled{opacity:.3;cursor:default}
+
+/* ---------- detail ---------- */
+.detail{display:grid;grid-template-columns:minmax(240px,420px) 1fr;gap:clamp(24px,4vw,64px);align-items:start}
+.detail .po{border-radius:18px;overflow:hidden;position:relative;aspect-ratio:5/7;background:var(--soft)}
+.detail .po img{width:100%;height:100%;object-fit:cover}
+.detail h1{font-size:clamp(22px,2.4vw,32px);letter-spacing:-.04em;line-height:1.1;word-break:keep-all}
+.dl{margin-top:26px;border-top:1px solid var(--ink)}
+.dl div{display:grid;grid-template-columns:110px 1fr;gap:12px;padding:14px 0;border-bottom:1px solid var(--line)}
+.dl dt{color:var(--ink2);font-size:15px}
+.dl dd{font-weight:500;word-break:keep-all}
+@media(max-width:760px){.detail{grid-template-columns:1fr}.detail .po{max-width:340px}}
+
+/* ---------- history ---------- */
+.yr{display:grid;grid-template-columns:clamp(80px,11vw,170px) 1fr;gap:16px;padding:clamp(22px,3vw,40px) 0;border-top:1px solid var(--ink)}
+.yr h3{font-size:clamp(24px,2.6vw,36px);font-weight:700;letter-spacing:-.05em;line-height:1;position:sticky;top:84px;align-self:start}
+.yr li{list-style:none;display:grid;grid-template-columns:128px 1fr;gap:14px;padding:11px 0;border-bottom:1px solid var(--line);word-break:keep-all}
+.yr li:last-child{border:0}
+.yr li time{white-space:nowrap;font-weight:600;color:var(--accent);font-variant-numeric:tabular-nums;font-size:14px;padding-top:1px}
+.yr li b{font-weight:500}
+.yr li span{display:block;color:var(--ink2);font-size:14px;margin-top:2px}
+.yr li a:hover b{color:var(--accent)}
+.yr li .ms{display:inline-block;font-size:11px;font-weight:700;background:var(--ink);color:#fff;border-radius:99px;padding:2px 9px;margin-left:6px;vertical-align:2px}
+@media(max-width:600px){.yr{grid-template-columns:1fr}.yr h3{position:static}.yr li{grid-template-columns:1fr;gap:2px}}
+
+/* ---------- about ---------- */
+.about{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(28px,5vw,80px);align-items:start}
+.about .big{font-size:clamp(19px,1.9vw,26px);font-weight:700;letter-spacing:-.04em;line-height:1.28;word-break:keep-all}
+.about .big em{font-style:normal;color:var(--accent)}
+.about p{margin-top:16px;font-size:15.5px;color:#333;word-break:keep-all}
+.about .ph2{border-radius:20px;overflow:hidden;aspect-ratio:4/5}
+.about .ph2 img{width:100%;height:100%;object-fit:cover}
+.nums{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:clamp(36px,5vw,70px)}
+.nums div{border-top:1px solid var(--ink);padding-top:14px}
+.nums b{display:block;font-size:clamp(26px,2.8vw,40px);letter-spacing:-.05em;line-height:1.05}
+.nums span{color:var(--ink2);font-size:14px}
+@media(max-width:860px){.about{grid-template-columns:1fr}.nums{grid-template-columns:1fr 1fr}}
+.vals{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.vals div{background:#fff;border-radius:20px;padding:28px}
+.vals h4{font-size:18px;letter-spacing:-.03em;margin-bottom:8px}
+.vals p{color:var(--ink2);word-break:keep-all}
+@media(max-width:860px){.vals{grid-template-columns:1fr}}
+
+/* ---------- org ---------- */
+.org{display:flex;flex-direction:column;align-items:center;padding:10px 0 20px}
+.node{background:#fff;border:1px solid var(--ink);border-radius:16px;padding:14px 22px;text-align:center;min-width:170px;position:relative;transition:transform .3s var(--ease),background .3s,color .3s}
+.node:hover{transform:translateY(-4px);background:var(--ink);color:#fff}
+.node.lead{background:var(--ink);color:#fff}
+.node small{display:block;font-size:13px;opacity:.7}
+.node b{font-size:17px;letter-spacing:-.02em}
+.stem{width:1px;height:34px;background:var(--ink)}
+.row{display:flex;justify-content:center;gap:clamp(14px,3vw,44px);position:relative;padding-top:34px;flex-wrap:nowrap}
+.row::before{content:"";position:absolute;top:0;left:calc(12.5% + 0px);right:calc(12.5% + 0px);height:1px;background:var(--ink)}
+.row .col{display:flex;flex-direction:column;align-items:center;position:relative;flex:1}
+.row .col::before{content:"";position:absolute;top:-34px;left:50%;width:1px;height:34px;background:var(--ink)}
+@media(max-width:820px){.row{flex-direction:column;align-items:center;padding-top:0;gap:0}.row::before{display:none}.row .col::before{position:static;display:block;height:26px}.row .col{flex:none}}
+.people{display:grid;grid-template-columns:repeat(5,1fr);gap:clamp(22px,2.4vw,40px) clamp(12px,1.5vw,24px)}
+@media(max-width:1200px){.people{grid-template-columns:repeat(3,1fr)}}@media(max-width:700px){.people{grid-template-columns:repeat(2,1fr)}}
+.person .im{aspect-ratio:4/5;border-radius:16px;overflow:hidden;background:var(--soft);position:relative}
+.person .im img{width:100%;height:100%;object-fit:cover;object-position:top;transition:transform .9s var(--ease)}
+.person:hover .im img{transform:scale(1.04)}
+.person .ini{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:44px;font-weight:700;color:#fff;background:linear-gradient(150deg,#1b1b22,var(--accent))}
+.person .ro{font-size:14px;color:var(--accent);font-weight:700;margin-top:14px}
+.person h4{font-size:19px;letter-spacing:-.03em}
+.person h4 small{font-size:13px;font-weight:400;color:var(--ink2);margin-left:6px}
+.person ul{margin-top:10px;font-size:14px;color:var(--ink2);list-style:none}
+.person li{padding:3px 0 3px 12px;position:relative;word-break:keep-all}
+.person li::before{content:"";position:absolute;left:0;top:12px;width:4px;height:4px;border-radius:50%;background:var(--ink2)}
+
+/* ---------- gallery ---------- */
+.gal{columns:4 260px;column-gap:14px}
+.gal figure{break-inside:avoid;margin-bottom:14px;border-radius:14px;overflow:hidden;position:relative;cursor:zoom-in;background:var(--soft)}
+.gal img{width:100%;transition:transform .9s var(--ease)}
+.gal figure:hover img{transform:scale(1.05)}
+.gal figcaption{position:absolute;left:0;right:0;bottom:0;padding:26px 14px 12px;color:#fff;font-size:13px;font-weight:600;background:linear-gradient(transparent,rgba(0,0,0,.7));opacity:0;transition:opacity .3s}
+.gal figure:hover figcaption{opacity:1}
+.strip{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.strip figure{border-radius:14px;overflow:hidden;aspect-ratio:3/2;cursor:zoom-in;margin:0}
+.strip figure:first-child{grid-column:span 2;grid-row:span 2;aspect-ratio:auto}
+.strip img{width:100%;height:100%;object-fit:cover;transition:transform .9s var(--ease)}
+.strip figure:hover img{transform:scale(1.05)}
+@media(max-width:720px){.strip{grid-template-columns:1fr 1fr}}
+#lb{position:fixed;inset:0;z-index:300;background:rgba(0,0,0,.94);display:none;align-items:center;justify-content:center;flex-direction:column;color:#fff}
+#lb.open{display:flex;animation:pageIn .3s}
+#lb img{max-width:92vw;max-height:80vh;border-radius:8px}
+#lb p{margin-top:14px;font-size:14px;opacity:.8;text-align:center;padding:0 20px}
+#lb button{position:absolute;width:48px;height:48px;border-radius:50%;background:rgba(255,255,255,.14);font-size:20px}
+#lb button:hover{background:rgba(255,255,255,.3)}
+#lb .x{top:18px;right:18px}#lb .pv{left:14px;top:50%}#lb .nx{right:14px;top:50%}
+
+/* ---------- press / support / contact ---------- */
+.tot{font-weight:700;color:var(--ink2);margin-bottom:14px;font-size:14px}
+.list{border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.list>a,.list>div.it{display:grid;grid-template-columns:130px 1fr auto;gap:26px;align-items:center;padding:10px 20px 10px 10px;border-bottom:1px solid var(--line);transition:background .25s}
+.list>*:last-child{border-bottom:0}
+.list>a:hover{background:var(--soft)}
+.list>a:hover h3{color:var(--accent)}
+.list .th{width:130px;height:74px;border-radius:8px;overflow:hidden;background:var(--soft);display:flex;align-items:center;justify-content:center}
+.list .th img{width:100%;height:100%;object-fit:cover}
+.list .th img.mk{width:54px;height:auto;object-fit:contain;mix-blend-mode:multiply}
+.list h3{font-size:16px;font-weight:500;letter-spacing:-.02em;line-height:1.45;word-break:keep-all;transition:color .2s}
+.list time{color:var(--ink2);font-size:14px;font-variant-numeric:tabular-nums;white-space:nowrap}
+.list.nt>a,.list.nt>div.it{grid-template-columns:1fr auto;padding:18px 20px}
+@media(max-width:640px){.list>a{grid-template-columns:92px 1fr;gap:14px;padding:10px}.list .th{width:92px;height:56px}.list time{grid-column:2;margin-top:-8px;font-size:13px}.list h3{font-size:14.5px}}
+.vgrid{align-items:start;display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(22px,2.4vw,36px) clamp(12px,1.5vw,22px)}
+@media(max-width:900px){.vgrid{grid-template-columns:repeat(2,1fr)}}
+.vc{display:block;text-align:left;width:100%}
+.vc .im{position:relative;aspect-ratio:16/9;border-radius:12px;overflow:hidden;background:linear-gradient(150deg,#1b1b22,#2a2350 60%,var(--accent))}
+.vc .im img{width:100%;height:100%;object-fit:cover;transition:transform .9s var(--ease)}
+.vc:hover .im img{transform:scale(1.05)}
+.vc .im::after{content:"";position:absolute;left:50%;top:50%;width:54px;height:54px;margin:-27px;border-radius:50%;background:rgba(0,0,0,.6) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23fff' d='M9 6.5v11l9-5.5z'/%3E%3C/svg%3E") center/26px no-repeat;transition:background-color .25s,transform .25s}
+.vc:hover .im::after{background-color:var(--accent);transform:scale(1.08)}
+.vc .d{font-size:13px;color:var(--accent);font-weight:700;margin-top:12px}
+.vc .t{font-weight:700;font-size:15.5px;line-height:1.35;letter-spacing:-.02em;margin-top:3px;word-break:keep-all}
+.vc .v{font-size:13px;color:var(--ink2);margin-top:3px}
+#vm{position:fixed;inset:0;z-index:300;background:rgba(0,0,0,.94);display:none;align-items:center;justify-content:center;flex-direction:column;color:#fff;padding:20px}
+#vm.open{display:flex;animation:pageIn .3s}
+#vm .fr{width:min(1100px,94vw);aspect-ratio:16/9;background:#000;border-radius:10px;overflow:hidden}
+#vm iframe{width:100%;height:100%;border:0}
+#vm p{margin-top:14px;font-size:14px;text-align:center}
+#vm p a{text-decoration:underline;margin-left:10px;opacity:.85}
+#vm .x{position:absolute;top:18px;right:18px;width:46px;height:46px;border-radius:50%;background:rgba(255,255,255,.14);font-size:18px}
+.dd{position:relative}
+.dd .sub{position:absolute;top:100%;left:0;min-width:176px;background:#fff;border-radius:12px;box-shadow:0 14px 40px rgba(0,0,0,.14),0 0 0 1px var(--line);padding:8px;opacity:0;visibility:hidden;transform:translateY(6px);transition:opacity .22s,transform .3s var(--ease),visibility .22s;z-index:70}
+.dd:hover .sub,.dd:focus-within .sub{opacity:1;visibility:visible;transform:none}
+.dd .sub a{display:block;padding:10px 14px;border-radius:8px;font-size:14.5px;font-weight:500;white-space:nowrap}
+.dd .sub a:hover{background:var(--soft);color:var(--accent)}
+.dd>.pill i{font-style:normal;font-size:10px;opacity:.6;margin-left:-4px}
+@media(max-width:1020px){.quick{display:none}}
+.map{border-radius:16px;overflow:hidden;border:1px solid var(--line);aspect-ratio:16/8;background:var(--soft)}
+.map iframe{width:100%;height:100%;border:0}
+@media(max-width:720px){.map{aspect-ratio:4/3}}
+.frm{max-width:1000px;margin:0 auto}
+.frm .g2{display:grid;grid-template-columns:1fr 1fr;gap:0 16px}
+@media(max-width:640px){.frm .g2{grid-template-columns:1fr}}
+.frm label em{color:#e03131;font-style:normal;margin-left:3px}
+.frm .ag{display:flex;align-items:center;gap:8px;margin-top:18px;font-size:14.5px;font-weight:400}
+.frm .ag input{width:auto}
+.frm .ag button{color:var(--accent);font-weight:700}
+.frm .pv{display:none;background:var(--soft);border-radius:12px;padding:16px 18px;font-size:13.5px;color:var(--ink2);margin-top:10px}
+.frm .pv.on{display:block}
+.frm .act{display:flex;justify-content:flex-end;margin-top:8px}
+.frm .msg{margin-top:14px;padding:14px 18px;border-radius:12px;font-weight:600;display:none}
+.frm .msg.ok{display:block;background:#e9f8ee;color:#12733a}
+.frm .msg.er{display:block;background:#fdecec;color:#b42318}
+.sup{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.sup article{border:1px solid var(--line);border-radius:22px;padding:30px;transition:transform .4s var(--ease),border-color .3s,box-shadow .4s}
+.sup article:hover{transform:translateY(-6px);border-color:var(--ink);box-shadow:0 18px 40px rgba(0,0,0,.08)}
+.sup .n{font-size:13px;font-weight:700;color:var(--accent)}
+.sup h3{font-size:20px;letter-spacing:-.03em;margin:6px 0 10px}
+.sup p{color:var(--ink2);word-break:keep-all}
+@media(max-width:860px){.sup{grid-template-columns:1fr}}
+.band{background:var(--accent);color:#fff;border-radius:28px;padding:clamp(30px,5vw,70px);display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
+.band h2{font-size:clamp(20px,2vw,28px);letter-spacing:-.04em;line-height:1.15;word-break:keep-all}
+.band p{opacity:.85;margin-top:8px}
+.ct{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,80px)}
+.ct .info div{padding:18px 0;border-bottom:1px solid var(--line);display:grid;grid-template-columns:100px 1fr;gap:12px}
+.ct .info div:first-child{border-top:1px solid var(--ink)}
+.ct .info dt{color:var(--ink2)}
+.ct .info dd{font-weight:600;word-break:break-word}
+.ct .info a:hover{color:var(--accent)}
+form label{display:block;font-size:14.5px;font-weight:500;margin:18px 0 8px}
+form input,form textarea,form select{width:100%;font:inherit;padding:13px 15px;border:1px solid #cfcec9;border-radius:8px;background:#fff;transition:border-color .2s,box-shadow .2s}
+form input:focus,form textarea:focus,form select:focus{outline:0;border-color:var(--accent);box-shadow:0 0 0 4px rgba(74,34,244,.12)}
+form textarea{min-height:170px;resize:vertical}
+form .pill{margin-top:18px}
+.hint{font-size:13px;color:var(--ink2);margin-top:10px}
+@media(max-width:860px){.ct{grid-template-columns:1fr}}
+
+/* ---------- footer ---------- */
+footer{background:var(--ink);color:#fff;padding:clamp(40px,5vw,72px) 0 34px;margin-top:0}
+footer .f1{display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:28px}
+footer .nm{font-size:clamp(19px,1.8vw,24px);font-weight:700;letter-spacing:-.04em;line-height:1.05}
+footer h5{font-size:13px;opacity:.55;font-weight:500;margin-bottom:12px}
+footer li{list-style:none;padding:4px 0}
+footer li a{opacity:.9}footer li a:hover{color:#a996ff}
+footer .f2{border-top:1px solid rgba(255,255,255,.18);margin-top:38px;padding-top:22px;font-size:13px;opacity:.7;line-height:1.9}
+@media(max-width:860px){footer .f1{grid-template-columns:1fr 1fr}}
+#fab{position:fixed;left:14px;bottom:calc(14px + env(safe-area-inset-bottom));z-index:90;display:none;box-shadow:0 8px 24px rgba(0,0,0,.25)}
+#totop{position:fixed;right:14px;bottom:calc(14px + env(safe-area-inset-bottom));z-index:90;width:46px;height:46px;border-radius:50%;background:#fff;box-shadow:0 8px 24px rgba(0,0,0,.2);opacity:0;pointer-events:none;transition:opacity .3s,transform .3s;transform:translateY(10px);font-size:18px}
+#totop.show{opacity:1;pointer-events:auto;transform:none}
+@media(max-width:720px){#fab.show{display:inline-flex}.nav .back.show{display:none}}
+
+/* ===== v3: colour ===== */
+:root{--navy:#111c44;--red:#e23d3d;--sun:#ffc83a;--cream:#f7f1e6;--teal:#0e7c7b}
+.phb{background:var(--c,var(--navy));color:#fff;position:relative;overflow:hidden;margin-bottom:clamp(22px,3vw,40px)}
+.phb::before,.phb::after{content:"";position:absolute;border-radius:50%;pointer-events:none}
+.phb::before{width:340px;height:340px;right:-70px;top:-170px;background:rgba(255,255,255,.1)}
+.phb::after{width:150px;height:150px;right:210px;bottom:-100px;background:var(--c2,var(--sun))}
+.phb .ph{position:relative;z-index:1;padding-bottom:clamp(24px,3vw,40px)}
+.phb .ph h1{border:0;padding-bottom:0}
+.phb .crumb,.phb .lead{color:rgba(255,255,255,.8)}
+@media(max-width:600px){.phb::after{right:-40px;width:110px;height:110px;bottom:-60px}.phb::before{display:none}}
+.sh h2{display:flex;align-items:center}
+.sh h2::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--red);box-shadow:13px 0 0 var(--sun);margin-right:24px;flex:none}
+.blk.navy{background:var(--navy);color:#fff}
+.blk.navy .card .t{color:#fff}.blk.navy .card .v{color:rgba(255,255,255,.62)}.blk.navy .card .d{color:var(--sun)}
+.blk.navy .sh p,.blk.violet .sh p{color:rgba(255,255,255,.7)}
+.blk.navy .more,.blk.violet .more{border-color:#fff}.blk.navy .more:hover,.blk.violet .more:hover{color:var(--sun);border-color:var(--sun)}
+.blk.cream{background:var(--cream)}
+.blk.violet{background:linear-gradient(120deg,#3312c9,var(--accent) 55%,#8440ff);color:#fff}
+.blk.violet .vc{color:#fff}.blk.violet .vc .d{color:var(--sun)}.blk.violet .vc .v{color:rgba(255,255,255,.72)}
+.nums div{border-top-width:3px}
+.nums div:nth-child(1){border-color:var(--accent)}.nums div:nth-child(1) b{color:var(--accent)}
+.nums div:nth-child(2){border-color:var(--red)}.nums div:nth-child(2) b{color:var(--red)}
+.nums div:nth-child(3){border-color:var(--teal)}.nums div:nth-child(3) b{color:var(--teal)}
+.nums div:nth-child(4){border-color:var(--navy)}.nums div:nth-child(4) b{color:var(--navy)}
+.band{background:linear-gradient(110deg,var(--accent),#b0309a 62%,var(--red))}
+footer{background:var(--navy)}#menu{background:var(--navy)}
+#menu li a:hover,#menu h4 a:hover{color:var(--sun)}
+.vals div:nth-child(1){border-top:4px solid var(--accent)}.vals div:nth-child(2){border-top:4px solid var(--red)}.vals div:nth-child(3){border-top:4px solid var(--teal)}
+.sup article:nth-child(1){background:#efeaff;border-color:transparent}.sup article:nth-child(2){background:#ffe9e4;border-color:transparent}.sup article:nth-child(3){background:#e2f4f1;border-color:transparent}
+.sup article:nth-child(2) .n{color:var(--red)}.sup article:nth-child(3) .n{color:var(--teal)}
+.node.lead{background:var(--navy);border-color:var(--navy)}.node:hover{background:var(--accent);border-color:var(--accent)}
+.card .im .st.live{background:var(--red);color:#fff}
+.np{background:linear-gradient(150deg,var(--navy),#2b2a7c 60%,var(--accent))}.np.b{background:linear-gradient(150deg,#7a1f2b,var(--red))}.np.c{background:linear-gradient(160deg,#0b4f4e,var(--teal))}
+.pager button.on{background:var(--accent)}
+.hero .dots button.on::after{background:var(--sun)}
+.lbar i{background:linear-gradient(90deg,var(--accent),var(--red),var(--sun))}
+.yr h3{color:var(--navy)}.yr{border-top-color:var(--navy)}
+.hero .sl video{width:100%;height:100%;object-fit:cover}
+/* carousel */
+.carw{position:relative}
+.car{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;-webkit-overflow-scrolling:touch;padding-bottom:4px}
+.car::-webkit-scrollbar{display:none}
+.car>*{flex:0 0 calc((100% - 64px)/5);scroll-snap-align:start;min-width:0}
+@media(max-width:1000px){.car>*{flex-basis:calc((100% - 32px)/3)}}
+@media(max-width:560px){.car>*{flex-basis:44%}}
+.car figure{aspect-ratio:1/1;border-radius:12px;overflow:hidden;cursor:zoom-in;margin:0;background:var(--soft)}
+.car figure img{width:100%;height:100%;object-fit:cover;transition:transform .9s var(--ease)}
+.car figure:hover img{transform:scale(1.05)}
+.carw .ar{position:absolute;top:calc(50% - 56px);width:42px;height:42px;border-radius:50%;background:rgba(255,255,255,.96);color:var(--ink);box-shadow:0 6px 18px rgba(0,0,0,.28);font-size:18px;z-index:3;transition:transform .2s,background .2s,color .2s}
+.carw.sq .ar{top:calc(50% - 21px)}
+.carw .ar:hover{background:var(--accent);color:#fff;transform:scale(1.08)}
+.carw .ar.l{left:-14px}.carw .ar.r{right:-14px}
+@media(max-width:700px){.carw .ar.l{left:2px}.carw .ar.r{right:2px}}
+
+/* ===== v4: navy / blue tone ===== */
+:root{--accent:#1a66e0;--accent-d:#124cad;--navy:#0f1d4a;--red:#2f7df6;--sun:#9cc8ff;--teal:#0f1d4a;--cream:#eef4fc;--soft:#f3f6fb;--line:#dfe4ee}
+.sh h2::before{background:var(--navy);box-shadow:13px 0 0 var(--red)}
+.blk.navy .sh h2::before,.blk.violet .sh h2::before{background:#fff;box-shadow:13px 0 0 var(--sun)}
+.blk.violet{background:#1a6fe8}
+.band{background:var(--navy)}
+.sup article:nth-child(n){background:var(--cream);border-color:transparent}
+.sup article:nth-child(n) .n{color:var(--accent)}
+.sup article:hover{border-color:var(--accent)}
+.nums div:nth-child(n){border-color:var(--navy)}.nums div:nth-child(n) b{color:var(--navy)}
+.np,.np.b,.np.c{background:linear-gradient(155deg,var(--navy),#1b3f95 65%,var(--accent))}
+.np.b{background:linear-gradient(155deg,#16306f,var(--accent))}.np.c{background:linear-gradient(155deg,#0b1535,#16306f)}
+.vc .im,.person .ini{background:linear-gradient(150deg,var(--navy),#1b3f95 60%,var(--accent))}
+.lbar i{background:linear-gradient(90deg,var(--navy),var(--accent),var(--sun))}
+.phb::after{background:var(--red)}
+form input:focus,form textarea:focus,form select:focus{box-shadow:0 0 0 4px rgba(26,102,224,.14)}
+.card .im .st.live{background:var(--accent)}
+.pill.dark{background:var(--navy)}.pill.dark:hover{background:#1b2d6b}
+.pill.line{box-shadow:inset 0 0 0 1px var(--navy);color:var(--navy)}.pill.line:hover{background:var(--navy);color:#fff}
+.tabs .pill.on{background:var(--navy)}
+#lmark+.lt{color:var(--navy)}
+/* ===== header: logo left, menu right ===== */
+.topbar{border-bottom:1px solid var(--line);background:#fff}
+.top{padding:7px var(--pad);font-size:13px}
+.soc{display:flex;align-items:center;gap:4px}
+.soc .ctl{margin:0 10px 0 0;opacity:1;font-weight:600}
+.soc .si{margin:0;width:28px;height:28px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;color:var(--navy);opacity:.8;transition:background .2s,color .2s,opacity .2s}
+.soc .si svg{width:16px;height:16px}
+.soc .si:hover{background:var(--navy);color:#fff;opacity:1}
+#menu .soc .si{color:#fff}#menu .soc .si:hover{background:#fff;color:var(--navy)}
+.nav .in{gap:16px;padding:12px var(--pad)}
+.nav .brand{padding:0}
+.quick{display:flex;gap:0;align-items:stretch}
+.grp{padding:2px clamp(14px,1.7vw,28px);border-left:1px solid #c9cfdb;display:flex;flex-direction:column;justify-content:center;gap:5px}
+.grp:last-child{padding-right:0}
+.grp small{font-size:12px;color:var(--ink2);font-weight:500;letter-spacing:0}
+.grp .its{display:flex;gap:clamp(16px,1.8vw,30px)}
+.mi{position:relative;font-weight:700;font-size:15.5px;letter-spacing:-.02em;display:inline-flex;align-items:center;gap:9px;padding:3px 0 5px;white-space:nowrap;color:var(--navy);transition:color .2s}
+.mi i{width:7px;height:7px;border-right:1.6px solid currentColor;border-bottom:1.6px solid currentColor;transform:rotate(45deg) translate(-2px,-2px);transition:transform .3s}
+.dd:hover .mi i{transform:rotate(225deg) translate(-2px,-2px)}
+.mi::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform .35s var(--ease)}
+.mi:hover,.mi.on{color:var(--accent)}.mi:hover::after,.mi.on::after{transform:scaleX(1)}
+.dd .sub{left:-14px;border-top:3px solid var(--navy);border-radius:0 0 12px 12px}
+#mbtn{display:none}
+@media(max-width:1020px){#mbtn{display:inline-flex}.quick{display:none}}
+@media(max-width:720px){.topbar{display:none}.nav .in{padding:9px var(--pad)}}
+/* ===== about photo carousel ===== */
+.pc{overflow:hidden;border-radius:16px}
+.pc .trk{display:flex;column-gap:16px;will-change:transform}
+.pc figure{flex:0 0 calc((100% - 32px)/3);aspect-ratio:3/2;border-radius:16px;overflow:hidden;margin:0;cursor:zoom-in;background:var(--soft)}
+.pc img{width:100%;height:100%;object-fit:cover;transition:transform .9s var(--ease)}
+.pc figure:hover img{transform:scale(1.05)}
+@media(max-width:640px){.pc figure{flex-basis:calc((100% - 16px)/2)}}
+/* ===== photo albums ===== */
+.vc.ab .im{aspect-ratio:3/2}
+.vc.ab .im::after{display:none}
+.vc.ab .cnt{position:absolute;right:10px;bottom:10px;background:rgba(15,29,74,.85);color:#fff;font-size:12px;font-weight:600;padding:4px 10px;border-radius:99px}
+
+/* ===== v5: refinement ===== */
+.grp{border-left:0;padding:2px clamp(12px,1.4vw,22px)}
+.hx{background:#0b1433;color:#fff;position:relative;padding:clamp(26px,3.6vw,60px) 0 clamp(54px,5vw,76px)}
+.hxin{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:clamp(24px,5vw,96px);align-items:center}
+.hxt h1{font-size:clamp(25px,3.3vw,50px);line-height:1.18;letter-spacing:-.04em;font-weight:700;word-break:keep-all;animation:pageIn .8s var(--ease)}
+.hxt hr{border:0;border-top:1px solid rgba(255,255,255,.75);margin:clamp(20px,2.4vw,34px) 0;animation:pageIn .8s var(--ease) .08s both}
+.hxt .pill{height:50px;padding:0 26px;font-size:15px;animation:pageIn .8s var(--ease) .16s both}
+.hxm{position:relative;aspect-ratio:4/3;overflow:hidden;border-radius:4px;background:#000}
+.hxm .sl{position:absolute;inset:0;opacity:0;transition:opacity 1.1s ease}
+.hxm .sl.on{opacity:1}
+.hxm img,.hxm video{width:100%;height:100%;object-fit:cover;transform:scale(1.06);transition:transform 7s linear}
+.hxm .sl.on img{transform:scale(1)}
+.hx .dots{position:absolute;left:0;right:0;bottom:22px;display:flex;justify-content:center;gap:9px}
+.hx .dots button{width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,.35);transition:background .3s,transform .3s}
+.hx .dots button.on{background:#fff;transform:scale(1.25)}
+@media(max-width:800px){.hxin{grid-template-columns:1fr;gap:22px}.hxm{order:-1;aspect-ratio:3/2}.hx{padding-top:0}.hx .hxin{padding:0}.hxt{padding:0 var(--pad)}}
+.sh{border-top:1px solid var(--navy);padding-top:16px;align-items:center}
+.sh h2::before{display:none}
+.blk.navy .sh,.blk.violet .sh{border-top-color:rgba(255,255,255,.45)}
+.phb::before,.phb::after{display:none}
+.phb{background:linear-gradient(100deg,#0b1433,#14286a)}
+.card .im,.vc .im,.car figure,.pc,.pc figure,.gal figure,.person .im,.detail .po,.about .ph2,.board,.list,.map{border-radius:6px}
+.band,.sup article,.empty,.node{border-radius:8px}
+.about p,.sup p,.band p,.person li,.nb,.pv{text-align:justify;word-break:normal;overflow-wrap:anywhere}
+.about.ab2{grid-template-columns:1fr;gap:clamp(26px,3.4vw,48px)}
+.about.ab2 .ph2{order:-1;aspect-ratio:21/9}
+.about.ab2 .ph2 img{object-position:center 62%}
+.about.ab2>div:first-child{columns:2;column-gap:clamp(30px,4.5vw,72px)}
+.about.ab2 .big{column-span:all;margin-bottom:clamp(14px,2vw,26px)}
+.about.ab2 p:not(.big){break-inside:avoid;margin:0 0 16px}
+@media(max-width:800px){.about.ab2>div:first-child{columns:1}.about.ab2 .ph2{aspect-ratio:3/2}}
+.people{grid-template-columns:repeat(3,1fr);max-width:1080px;margin:0 auto}
+@media(max-width:700px){.people{grid-template-columns:repeat(2,1fr)}}
+
+/* ===== v6 ===== */
+.hero h1{font-size:clamp(17px,1.9vw,27px);line-height:1.3;letter-spacing:-.03em;font-weight:700;max-width:760px;word-break:keep-all}
+.hero .cta{margin-top:14px}
+.hero .cta .pill{height:38px;padding:0 18px;font-size:13.5px}
+.hero .sl::after{background:linear-gradient(180deg,rgba(0,0,0,0) 45%,rgba(5,10,30,.78))}
+.about .ph2{aspect-ratio:3/4;position:sticky;top:96px}
+@media(max-width:860px){.about .ph2{position:static;aspect-ratio:4/5}}
+.row{gap:0}
+.row::before{display:none}
+.row .col{padding:0 clamp(6px,1.4vw,22px)}
+.row .col::after{content:"";position:absolute;top:-34px;left:0;right:0;height:1px;background:var(--ink)}
+.row .col:first-child::after{left:50%}
+.row .col:last-child::after{right:50%}
+@media(max-width:820px){.row .col::after{display:none}.row .col{padding:0}}
+
+/* ===== v7 ===== */
+.about:not(.x){align-items:stretch}
+.about .ph2{position:relative;top:auto;aspect-ratio:auto;height:100%;min-height:260px}
+.about .ph2 img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 90%}
+@media(max-width:860px){.about .ph2{aspect-ratio:4/3;height:auto}}
+.node{min-width:150px}
+@media(max-width:1100px) and (min-width:821px){.node{min-width:0;padding:12px 10px;width:100%}.row .col{padding:0 5px}}
+.about .ph2{width:100%;min-width:0}
+.about>*{min-width:0}
+@media(max-width:860px){.about .ph2{min-height:0;aspect-ratio:4/3!important;height:auto}}
+.vgrid>*,.grid5>*,.people>*{min-width:0}
+.person li{text-align:left;word-break:keep-all}
+.row.r2{width:max-content;max-width:none}
+.row.r2 .col{padding:0 8px}
+.row.r2 .node{min-width:132px}
+@media(max-width:1100px) and (min-width:821px){.row.r2 .node{min-width:104px;width:auto;padding:12px 8px}.row.r2 .col{padding:0 4px}}
+@media(max-width:820px){.row.r2{width:auto}}
+@media(max-width:1100px) and (min-width:821px){.node.lead{width:auto;min-width:150px;padding:12px 22px}}
+</style>
+</head>
+<body class="lock">
+
+<div id="loader" aria-hidden="true">
+  <img class="mark" id="lmark" alt="">
+  <div class="lt" id="lt"></div>
+  <div class="lbar"><i></i></div>
+</div>
+
+<div class="topbar"><div class="wrap top">
+  <div><b>K-Philharmonic Orchestra</b></div>
+  <div class="soc"><a class="ctl" href="#/contact">Contact</a><a class="si" href="#" data-soc="instagram" aria-label="인스타그램" title="인스타그램"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none"/></svg></a><a class="si" href="#" data-soc="facebook" aria-label="페이스북" title="페이스북"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.6 21v-7.6h2.6l.4-3h-3V8.5c0-.9.3-1.5 1.5-1.5h1.6V4.3c-.3 0-1.2-.1-2.3-.1-2.3 0-3.8 1.4-3.8 3.9v2.3H8v3h2.6V21z"/></svg></a><a class="si" href="#" data-soc="youtube" aria-label="유튜브" title="유튜브"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2.5" y="5.5" width="19" height="13" rx="4"/><path d="M10 9.2v5.6l4.8-2.8z" fill="currentColor" stroke="none"/></svg></a><a class="si" href="#" data-soc="mail" aria-label="메일" title="메일"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M3.5 7l8.5 6.5L20.5 7"/></svg></a></div>
+</div></div>
+<div class="nav" id="nav">
+  <div class="wrap in">
+    <a class="brand" href="#/" aria-label="케이필하모닉오케스트라 홈">
+      <img id="hmark" alt="">
+      <span class="nm">K-Philharmonic<br>Orchestra</span>
+    </a>
+    <span class="sp"></span>
+    <nav class="quick" aria-label="주 메뉴">
+      <div class="grp"><small>About</small><div class="its">
+        <div class="dd"><a class="mi" data-q="about" href="#/about">오케스트라 소개<i></i></a><div class="sub"><a href="#/about">오케스트라 소개</a><a href="#/org">조직도</a><a href="#/members">단원소개</a><a href="#/location">오시는 길</a></div></div></div></div>
+      <div class="grp"><small>Concerts</small><div class="its">
+        <div class="dd"><a class="mi" data-q="perf" href="#/history">공연<i></i></a><div class="sub"><a href="#/history">단체 연혁</a><a href="#/upcoming">예정된 공연</a><a href="#/past">지난 공연</a></div></div></div></div>
+      <div class="grp"><small>News</small><div class="its">
+        <div class="dd"><a class="mi" data-q="news" href="#/press">소식과 정보<i></i></a><div class="sub"><a href="#/press">보도기사</a><a href="#/notice">공지사항</a><a href="#/gallery">공연 사진</a><a href="#/videos">공연 영상</a></div></div></div></div>
+      <div class="grp"><small>Get Involved</small><div class="its">
+        <a class="mi" data-q="support" href="#/support">후원</a><a class="mi" data-q="contact" href="#/contact">공연 문의</a></div></div>
+    </nav>
+    <button class="pill dark" id="mbtn" aria-haspopup="true" aria-controls="menu"><span class="burger"></span>메뉴</button>
+  </div>
+</div>
+
+<div id="menu" role="dialog" aria-label="전체 메뉴">
+  <div class="wrap">
+    <div class="hd">
+      <button class="pill white" id="mclose">✕ 닫기</button>
+      <a class="pill" href="#/" style="box-shadow:inset 0 0 0 1px rgba(255,255,255,.4)">홈</a>
+    </div>
+    <div class="grid">
+      <div><h4><a href="#/about">오케스트라 소개</a></h4><ul>
+        <li><a href="#/about">오케스트라 소개</a></li><li><a href="#/org">조직도</a></li><li><a href="#/members">단원소개</a></li><li><a href="#/location">오시는 길</a></li></ul></div>
+      <div><h4><a href="#/history">공연</a></h4><ul>
+        <li><a href="#/history">단체 연혁</a></li><li><a href="#/upcoming">예정된 공연</a></li><li><a href="#/past">지난 공연</a></li></ul></div>
+      <div><h4><a href="#/press">소식과 정보</a></h4><ul>
+        <li><a href="#/press">보도기사</a></li><li><a href="#/notice">공지사항</a></li><li><a href="#/gallery">공연 사진</a></li><li><a href="#/videos">공연 영상</a></li></ul></div>
+      <div><h4><a href="#/support">후원</a></h4><ul>
+        <li><a href="#/support">후원 안내</a></li></ul></div>
+      <div><h4><a href="#/contact">공연 문의</a></h4><ul>
+        <li><a href="#/contact">공연 문의</a></li></ul></div>
+    </div>
+    <div class="ft"><span class="soc"><a class="si" href="#" data-soc="instagram" aria-label="인스타그램" title="인스타그램"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none"/></svg></a><a class="si" href="#" data-soc="facebook" aria-label="페이스북" title="페이스북"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.6 21v-7.6h2.6l.4-3h-3V8.5c0-.9.3-1.5 1.5-1.5h1.6V4.3c-.3 0-1.2-.1-2.3-.1-2.3 0-3.8 1.4-3.8 3.9v2.3H8v3h2.6V21z"/></svg></a><a class="si" href="#" data-soc="youtube" aria-label="유튜브" title="유튜브"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2.5" y="5.5" width="19" height="13" rx="4"/><path d="M10 9.2v5.6l4.8-2.8z" fill="currentColor" stroke="none"/></svg></a><a class="si" href="#" data-soc="mail" aria-label="메일" title="메일"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M3.5 7l8.5 6.5L20.5 7"/></svg></a></span><span>TEL 02-6925-5826</span><span>kphilorchestra@gmail.com</span><span>서울특별시 서대문구 연희동 206-3</span></div>
+  </div>
+</div>
+
+<main id="app"></main>
+
+<footer>
+  <div class="wrap">
+    <div class="f1">
+      <div><div class="nm">K-Philharmonic<br>Orchestra</div><p style="opacity:.7;margin-top:14px">좋은 음악으로 청중의, 청중에 의한,<br>청중을 위한 무대를 만듭니다.</p></div>
+      <div><h5>오케스트라 소개</h5><ul><li><a href="#/about">오케스트라 소개</a></li><li><a href="#/org">조직도</a></li><li><a href="#/members">단원소개</a></li><li><a href="#/location">오시는 길</a></li></ul></div>
+      <div><h5>공연</h5><ul><li><a href="#/history">단체 연혁</a></li><li><a href="#/upcoming">예정된 공연</a></li><li><a href="#/past">지난 공연</a></li></ul></div>
+      <div><h5>소식과 정보</h5><ul><li><a href="#/press">보도기사</a></li><li><a href="#/notice">공지사항</a></li><li><a href="#/gallery">공연 사진</a></li><li><a href="#/videos">공연 영상</a></li><li><a href="#/support">후원</a></li><li><a href="#/contact">공연 문의</a></li></ul></div>
+    </div>
+    <div class="f2">
+      상호 케이필하모닉오케스트라 · 대표 김지향 · 사업자등록번호 603-22-79711<br>
+      서울특별시 서대문구 연희동 206-3 · TEL 02-6925-5826 · FAX 02-2043-6409 · kphilorchestra@gmail.com<br>
+      © <span id="yy"></span> K-Philharmonic Orchestra. All rights reserved.
+    </div>
+  </div>
+</footer>
+
+<button class="pill dark" id="fab">← 뒤로</button>
+<button id="totop" aria-label="맨 위로">↑</button>
+<div id="vm"><button class="x" aria-label="닫기">✕</button><div class="fr"></div><p></p></div>
+<div id="lb"><button class="x" aria-label="닫기">✕</button><button class="pv" aria-label="이전">‹</button><button class="nx" aria-label="다음">›</button><img alt=""><p></p></div>
+
+<script>
+const A={"P0": "assets/P0.jpg", "P1": "assets/P1.jpg", "P2": "assets/P2.jpg", "P3": "assets/P3.jpg", "P4": "assets/P4.jpg", "P5": "assets/P5.jpg", "P6": "assets/P6.jpg", "P7": "assets/P7.jpg", "P8": "assets/P8.jpg", "P9": "assets/P9.jpg", "P10": "assets/P10.jpg", "P11": "assets/P11.jpg", "P12": "assets/P12.jpg", "P13": "assets/P13.jpg", "P14": "assets/P14.jpg", "P15": "assets/P15.jpg", "P16": "assets/P16.jpg", "P17": "assets/P17.jpg", "P18": "assets/P18.jpg", "P19": "assets/P19.jpg", "P20": "assets/P20.jpg", "P21": "assets/P21.jpg", "F0": "assets/F0.jpg", "F1": "assets/F1.jpg", "F2": "assets/F2.jpg", "F3": "assets/F3.jpg", "F4": "assets/F4.jpg", "F6": "assets/F6.jpg", "F7": "assets/F7.jpg", "F8": "assets/F8.jpg", "F9": "assets/F9.jpg", "F10": "assets/F10.jpg", "F12": "assets/F12.jpg", "F13": "assets/F13.jpg", "F14": "assets/F14.jpg", "F15": "assets/F15.jpg", "F16": "assets/F16.jpg", "F17": "assets/F17.jpg", "F18": "assets/F18.jpg", "F20": "assets/F20.jpg", "F22": "assets/F22.jpg", "F24": "assets/F24.jpg", "F25": "assets/F25.jpg", "F26": "assets/F26.jpg", "F27": "assets/F27.jpg", "F28": "assets/F28.jpg", "F29": "assets/F29.jpg", "F30": "assets/F30.jpg", "F31": "assets/F31.jpg", "G0": "assets/G0.jpg", "G1": "assets/G1.jpg", "G2": "assets/G2.jpg", "G3": "assets/G3.jpg", "G4": "assets/G4.jpg", "G5": "assets/G5.jpg", "G6": "assets/G6.jpg", "G7": "assets/G7.jpg", "kim": "assets/kim.jpg", "young": "assets/young.jpg", "yeo": "assets/yeo.jpg", "na": "assets/na.jpg", "logo": "assets/logo.png", "mark": "assets/mark.png"};
+/* ================= DATA ================= */
+// k:'m' = 연혁에만 표시되는 단체 이정표. p = 포스터, f = 공연 사진
+const SCH24='2024 송파구 학교로 찾아가는 오케스트라';
+const SCH26='학교로 찾아가는 오케스트라';
+const E=[
+{d:'2018-09-01',t:'K-필하모닉오케스트라 창단',k:'m'},
+{d:'2019-07-17',t:'아이비와 류정필의 Feel & Good 갈라 콘서트',v:'광주문화예술회관',c:'아이비, 류정필'},
+{d:'2019-07-31',tm:'20:00',t:'뮤직 하모니',v:'경주예술의전당 화랑홀',c:'지휘 김영준 · 아이비, 송가인, 박지혜, 안갑성',p:'P0'},
+{d:'2019-09-18',tm:'19:00',t:'구미공단 50주년 기념 음악의 밤',v:'구미문화예술회관 대공연장',c:'김동규, 강혜정, 하석배, 박지혜, 김만수, 앙상블클라비어',p:'P18'},
+{d:'2019-10-18',t:'K-필하모닉오케스트라와 함께하는 〈최백호의 어텀 브리즈〉',v:'세종문화예술회관',c:'최백호'},
+{d:'2019-12-31',tm:'21:00',t:'아듀 2019 K-필하모닉오케스트라와 함께하는 제야음악회',v:'안동문화예술의전당 웅부홀',c:'지휘 김영준 · 김동규, 김소현, 서의철, 박소현, 이윤경, 임희성, 안동시립합창단',p:'P19'},
+{d:'2021-06-28',t:'크로아티아 문화 행사 ‘천년의 발자취’',v:'국립중앙도서관 (서초구)',c:'사회 권상희 · 소프라노 정시영, 테너 김중일'},
+{d:'2021-11-17',t:'장애인 문화가 있는 날',v:'지타워컨벤션',c:'김중일, 정시영'},
+{d:'2022-03-01',dm:1,t:'2022년 문예회관과 함께하는 방방곡곡 문화공감 민간예술단체 우수공연 프로그램 선정 — 〈K-필하모닉오케스트라의 슬기로운 음악생활〉',k:'m'},
+{d:'2022-04-01',t:'K-필하모닉오케스트라의 슬기로운 음악생활 — 포천',v:'포천문화재단 반월아트홀',c:'홍경민, 고성현, 신현선, 박지혜'},
+{d:'2022-04-21',t:'국회의사당 크로아티아 행사',v:'국회의사당',c:'신현선, 장동일'},
+{d:'2022-06-02',t:'개명 축하의 밤',v:'강서대학교 성서관 대강당'},
+{d:'2022-07-21',t:'케이필하모닉오케스트라의 슬기로운 음악생활 — 태안',v:'태안문화예술회관',c:'홍경민, 고성현, 신현선, 박지혜'},
+{d:'2022-10-01',t:'케이필하모닉오케스트라의 슬기로운 음악생활 — 안산',v:'안산문화예술회관',c:'사회 권상희 · 홍경민, 고성현, 신현선, 박지혜',f:['F0']},
+{d:'2022-10-14',tm:'18:30',t:'케이필하모닉오케스트라와 함께하는 다진 가족 음악회',v:'㈜다진 사옥',c:'사회 권상희 · 지휘 지수한 · 손가슬, 신현선, 한경석, 김중일',o:'주최 ㈜다진 · 주관 케이필하모닉오케스트라',p:'P1'},
+{d:'2022-10-21',tm:'18:30',t:'2022 평택 세계문화주간 — 크로아티아 문화주간',v:'평택 배다리도서관 잔디광장',c:'여가영, 피아니스트 미아 엘레조비치, 정시영, 장동일',p:'P3'},
+{d:'2022-10-29',tm:'17:00',t:'케이필하모닉오케스트라의 슬기로운 음악생활 — 천안',v:'천안예술의전당 대공연장',c:'사회 권상희 · 지휘 지수한 · 홍경민, 신현선, 박지혜, 오유석, 김민지',p:'P2'},
+{d:'2022-11-22',t:'제3회 태안예술가곡제',v:'태안문화예술회관',c:'사회 권상희 · 박미자, 임청화, 김순영, 신현선, 이정원, 신동원, 고성현, 김동섭, 이응광'},
+{d:'2023-02-02',tm:'19:30',t:'2023 신춘음악회 — 태안의 새봄! 새로운 태안!',v:'태안군 문화예술회관 대공연장',c:'사회 권상희 · 지휘 김영준 · 박강성, 오정해, 유지나',p:'P7',f:['F4','F9','F14','F15','F6','F7','F8','F10','F12','F13','F16']},
+{d:'2023-03-17',tm:'19:30',t:'천안예술의전당 신춘음악회 — 뉴 호프 스프링 콘서트',v:'천안예술의전당 대공연장',c:'사회 권상희 · 지휘 김영준 · 케빈오, 조윤경(첼로댁), 유병엽',p:'P4',f:['F1','F2','F3']},
+{d:'2023-04-20',tm:'19:00',t:'장애인의 날 기념공연 — 케이필하모닉오케스트라의 어울림 메아리',v:'용인 포은아트홀',c:'지휘 김영준 · 박수정, 신현선, 조윤경(첼로댁), 박혜민, 윤승환, 오유석, 황태경, 시현정',p:'P5',f:['F26','F28','F29','F30','F31','F27']},
+{d:'2023-06-01',t:'코리아헤럴드 창간 70주년 〈케이필하모닉 연주회〉',v:'',c:'라클라쎄, 박수정, 신현선, 김은정, 김태연'},
+{d:'2023-11-02',tm:'19:00',t:'제4회 태안가곡제 — 돌아온 안흥진성',v:'태안문화예술회관 대극장',c:'사회 전광렬 · 지휘 지수한 · 이응광, 손혜수, 이봉근, 한윤석, 임청화, 서선영, 한경미',p:'P6'},
+{d:'2024-01-30',t:'태안 2024 신년음악회',v:'태안문화예술회관',c:'사회 권상희 · 장사익, 송소희, 안세권'},
+{d:'2024-05-02',t:'연암대학교 개교 50주년 기념식',v:'연암대학교'},
+{d:'2024-05-04',dd:'2024.05.04 (토) 13:30 / 15:30',t:'청와대 어린이세상 — 청와대 가족음악회',v:'청와대 헬기장',c:'사회 오유석 · 소프라노 정시영, 바리톤 이승왕 · 특별출연 장애인 어울림예술단체',p:'P11',f:['F20','F17','F22','F18']},
+{d:'2024-06-03',t:SCH24+' — 아주중학교',v:'아주중학교 대강당'},
+{d:'2024-06-07',t:SCH24+' — 방이중학교',v:'방이중학교 대강당'},
+{d:'2024-06-11',t:SCH24+' — 영파여자고등학교',v:'영파여고 대강당'},
+{d:'2024-06-17',tm:'11:00',t:SCH24+' — 위례솔중학교',v:'위례솔중학교 대강당',c:'지휘 강한결 · 협연 임지수',p:'P8'},
+{d:'2024-06-27',t:'천안 케이필하모닉스트링 연주회 〈음중미담〉',v:'천안',c:'라클라쎄, 케이필하모닉스트링'},
+{d:'2024-06-28',t:'서울 케이필하모닉스트링 연주회',v:'숭실대학교 문화관'},
+{d:'2024-09-17',t:'청와대 연주회',v:'청와대'},
+{d:'2024-10-05',tm:'17:00',t:'천안예술의전당 개관 12주년 기념공연 Ⅱ — 케이필하모닉오케스트라',v:'천안예술의전당 대공연장',c:'진행 권상희 · 지휘 백윤학 · 소프라노 서선영, 베이스바리톤 길병민, 테너 하만택, 국악앙상블',p:'P12'},
+{d:'2024-10-11',tm:'19:30',t:'케이필하모닉오케스트라와 함께하는 다진 가을 음악회',v:'평택 서부문화예술회관 대공연장',c:'지휘 최선용 · 박형준, 김경희, 고아라, 오정해, 라클라쎄',o:'주최 ㈜다진 · 주관 케이필하모닉오케스트라',p:'P13'},
+{d:'2024-10-12',tm:'19:30',t:'2024 청와대 뮤직 페스티벌 — K-필하모닉오케스트라',v:'청와대 헬기장',c:'지휘 박해원 · 테너 박평준, 테너 김중일, 소프라노 정시영, 소프라노 이은희, 래퍼 청',p:'P10'},
+{d:'2024-10-31',tm:'19:30',t:'제5회 태안예술가곡제 — 태안에서 온 가을편지!',v:'태안군 문화예술회관 대공연장',c:'박인희와 함께',o:'주최 태안군 · 주관 케이필하모닉오케스트라',p:'P9'},
+{d:'2025-01-25',t:'K필 앙상블 (피아노 5중주)',v:'신라호텔'},
+{d:'2025-03-19',t:'K필 앙상블 (현악 4중주)',v:'파크하얏트'},
+{d:'2025-04-22',tm:'19:00',t:'아름다운 세 남자의 봄 음악회',v:'청와대 본관',c:'소리꾼 김준수, 성악가 길병민, 래퍼 청',p:'P15'},
+{d:'2025-05-10',t:'청와대 연주회',v:'청와대 야외무대'},
+{d:'2025-09-06',tm:'15:00',t:'천안예술의전당 개관 13주년 기념공연 — 세 남자 이야기 with 케이필하모닉오케스트라',v:'천안예술의전당 대공연장',c:'진행 권상희 · 지휘 백윤학 · 테너 김민석, 바리톤 김기훈, 클래식 색소폰 브랜든 최',p:'P16'},
+{d:'2025-11-26',e:'2025-11-29',dl:'2025.11.26–27, 29',t:'도란도란 클래식 — 모차르트편',v:'영등포아트홀',c:'우리 아이 첫 클래식',o:'주최 영등포문화재단',p:'P14',f:['F25']},
+{d:'2025-11-27',tm:'19:30',t:'제6회 태안예술가곡제 — 태안에서 온 가을편지! PART.Ⅱ',v:'태안군문화예술회관 대공연장',o:'주최 태안군 · 주관 케이필하모닉오케스트라',p:'P20'},
+{d:'2026-02-21',t:'겨울방학 어린이 클래식 여행 — 모차르트',v:'송파문화재단',f:['F24']},
+{d:'2026-06-09',t:SCH26+' — 오륜초등학교',v:'오륜초등학교'},
+{d:'2026-06-11',t:SCH26+' — 송전초등학교',v:'송전초등학교'},
+{d:'2026-06-16',t:SCH26+' — 잠실초등학교',v:'잠실초등학교'},
+{d:'2026-06-18',t:SCH26+' — 세륜초등학교',v:'세륜초등학교'},
+{d:'2026-06-23',t:SCH26+' — 거원중학교',v:'거원중학교'},
+{d:'2026-06-25',t:SCH26+' — 송파초등학교',v:'송파초등학교'},
+{d:'2026-10-22',tm:'19:00',t:'영웅음악회 — 클래식 & 뮤지컬 갈라 콘서트',v:'CTS아트홀 (서울 동작구)',c:'지휘 김영준 · 사회 권상희 · 박혜민, 김중일, 이승왕',o:'동작문화재단',p:'P17'},
+{d:'2026-10-30',tm:'19:30',t:'천안예술의전당 가을음악회 — 씨네마 콘서트 with K-필하모닉오케스트라',v:'천안예술의전당',c:'하모니시스트 박종성, 소프라노 최정원, 뮤지컬 배우 김바울',o:'천안문화재단',f:['G5','G0','G1','G6','G2','G4','G7','G3']},
+{d:'2026-11-05',e:'2026-11-07',dl:'2026.11.05–07',tx:'2026.11.05 (목) – 11.06 (금) 10:30 / 11.07 (토) 15:00',t:'도란도란 클래식 — 베토벤',v:'영등포아트홀',c:'우리 아이 첫 클래식',o:'주최 영등포문화재단 · 협력 서울어텀페스타',p:'P21'}
+];
+E.forEach((x,i)=>x.id=i);
+const PERF=E.filter(x=>x.k!=='m');
+const TODAY=new Date();TODAY.setHours(0,0,0,0);
+const dt=s=>{const [y,m,d]=s.split('-').map(Number);return new Date(y,m-1,d)};
+const isLive=x=>dt(x.e||x.d)>=TODAY;
+const DOW='일월화수목금토';
+const fd=x=>x.dl||x.d.replace(/-/g,'.');
+const fdl=x=>{if(x.tx)return x.tx;const D=dt(x.d);return (x.dl||x.d.replace(/-/g,'.')+` (${DOW[D.getDay()]})`)+(x.tm?' '+x.tm:'')};
+const LIVE=PERF.filter(isLive).sort((a,b)=>dt(a.d)-dt(b.d));
+const PAST=PERF.filter(x=>!isLive(x)).sort((a,b)=>dt(b.d)-dt(a.d)||b.id-a.id);
+const ALL=[...LIVE,...PAST];
+const PHOTOS=[];PAST.concat(LIVE).forEach(x=>(x.f||[]).forEach(k=>PHOTOS.push({k,x})));
+
+const PEOPLE=[
+{r:'대표 겸 단장',en:'CEO and General Manager',n:'김지향',img:'kim',b:['독일 베를린국립대학교 Diplom (의상 디자인 전공)','독일 Maskenbildner Meister Diplom (특수분장 전공)','라무지카 대표 역임','웨스턴심포니오케스트라 단장 역임','국내 음악회 기획 및 정기 연주회 개최','(현) 케이필하모닉오케스트라 단장']},
+{r:'상임지휘자',en:'Principal Conductor',n:'김영준',img:'young',b:['한국예술종합학교 지휘과 예술사 · 예술전문사','차이코프스키 음악원 오케스트라 지휘 전문연주자과정','과천시립아카데미오케스트라 · 과천시립교향악단 부지휘자','(현) 케이필하모닉오케스트라 지휘자']},
+{r:'단무장',en:'Orchestra Manager',n:'여가영',img:'yeo',b:['베를린 국립음악대학교 “Hanns Eisler” Diplom 및 Konzertexamen 수석 졸업','비엔나 국제 콩쿨 입상 및 특별상 수상','국내외 주요 교향악단과 협연','(현) 한세대 겸임교수, 협성대 · 나사렛대 외래교수']},
+{r:'악장',en:'Concertmaster',n:'나승준',img:'na',b:['연세대학교 학사','드레스덴 국립음대 Master','뷔르츠부르크 국립음대 Meisterklasse','자브뤼켄 국립음대 실내악 Konzertexamen 졸업','(현) 케이필하모닉오케스트라 악장']},
+{r:'국장',en:'Executive Director',n:'김지현',img:'',b:[]},
+{r:'총괄 PD',en:'Executive Producer',n:'안성균',img:'',b:[]},
+{r:'기획팀 팀장',en:'Planning Team Lead',n:'이지선',img:'',b:['공연 기획 · 운영','공연 및 협업 문의 담당']}
+];
+const PRESS=[
+{d:'2026.10.12',s:'브릿지경제',t:'천안예술의전당, 영화·뮤지컬 명곡으로 채우는 가을 음악회',u:'https://www.viva100.com/article/20261012500315',img:'G0'},
+{d:'2026.10.12',s:'충청타임즈',t:'천안문화재단, 오는 30일 ‘씨네마 콘서트 with K-필하모닉오케스트라’',u:'http://www.cctimes.kr/news/articleView.html?idxno=931566',img:'G5'},
+{d:'2026.10.12',s:'충청매일',t:'영화 속 감동, 오케스트라 선율로 다시 만난다…천안의 가을밤 물들일 ‘씨네마 콘서트’',u:'https://www.ccdn.co.kr/news/articleView.html?idxno=1104065',img:'G7'},
+{d:'2026.10.12',s:'쿠키뉴스',t:'천안예당, 30일 ‘씨네마콘서트 with K-필하모닉’',u:'https://www.kukinews.com/article/view/kuk202610120055',img:'G1'},
+{d:'2026.10.12',s:'충남일보',t:'천안문화재단, 오는 30일 ‘씨네마 콘서트 with K-필하모닉오케스트라’',u:'http://www.chungnamilbo.co.kr/news/articleView.html?idxno=913980',img:'G0'},
+{d:'2026.10.12',s:'내외일보',t:'천안문화재단, 오는 30일 ‘씨네마 콘서트 with K-필하모닉오케스트라’',u:'https://www.naewoeilbo.com/news/articleView.html?idxno=2429473',img:'G5'},
+{d:'2026.10.12',s:'중부시사신문',t:'천안문화재단, 오는 30일 ‘씨네마 콘서트 with K-필하모닉오케스트라’',u:'https://www.gninews.co.kr/news/article.html?no=870437',img:'G7'},
+{d:'2026.10.12',s:'충남신문',t:'천안문화재단, 오는 30일 ‘씨네마 콘서트 with K-필하모닉오케스트라’',u:'http://www.ccsimin.com/293240',img:'G1'},
+{d:'2026.10.12',s:'국제뉴스',t:'동작문화재단, ‘영웅 음악회’ 개최…청년·주민에 희망 메시지 전달',u:'https://www.gukjenews.com/news/articleView.html?idxno=3718860',img:'P17'},
+{d:'2026.10.12',s:'동작뉴스',t:'동작문화재단, ‘영웅 음악회’ 개최…일상의 영웅에게 전하는 희망과 응원',u:'http://www.dongjaknews.com/34317',img:'P17'},
+{d:'2026.05.27',s:'서울신문',t:'더 많은 송파 학교에 오케스트라가 찾아갑니다',u:'https://go.seoul.co.kr/news/newsView.php?id=20260527021004',img:'P8'},
+{d:'2025.07',s:'K-Classic News',t:'천안예술의전당, 개관 13주년 특별공연 ‘세 남자 이야기’',u:'https://www.kclassicnews.com/news/article.html?no=189493',img:'P16'},
+{d:'2025.07',s:'내외일보',t:'천안예술의전당, 개관 13주년 특별공연 ‘세 남자 이야기’',u:'https://www.naewoeilbo.com/news/articleView.html?idxno=2149035',img:'P16'},
+{d:'2024.10',s:'충청뉴스',t:'태안에서 온 가을편지.... 제5회 태안예술가곡제 31일 개최',u:'https://www.ccnnews.co.kr/news/articleView.html?idxno=350241',img:'P9'},
+{d:'2024.10',s:'내 손안에 서울',t:'주말 밤, 갈 곳 걱정 뚝! 청와대 무료 공연부터 근처 가볼 만한 곳까지',u:'https://mediahub.seoul.go.kr/archives/2012416',img:'P10'},
+{d:'2024.09.05',s:'대전일보',t:'[문화나들이] 천안예술의전당, 케이필하모닉오케스트라',u:'https://www.daejonilbo.com/news/articleView.html?idxno=2154023',img:'P12'},
+{d:'2024.05',s:'브레이크뉴스',t:'[문화인물 탐구] K-필하모닉 오케스트라(KPO) 단장 김지향',u:'https://www.breaknews.com/1030745',img:'F9'},
+{d:'2022.09.21',s:'경기종합뉴스',t:'(재)안산문화재단, 10월 첫 번째 “케이필하모닉오케스트라” 기획공연',u:'http://www.ggoverallnews.co.kr/news/articleView.html?idxno=23062',img:'F0'},
+{d:'2019.12',s:'NSP통신',t:'안동문화예술의전당, ‘아듀 2019 제야 음악회’ 개최',u:'http://www.nspna.com/news/?mode=view&newsid=402253',img:'P19'},
+{d:'2019.12',s:'안동인터넷신문',t:'K-필하모닉오케스트라, 아듀 2019 제야 음악회!',u:'http://www.andonginews.com/news/articleView.html?idxno=3550',img:'P19'}
+];
+// 공지사항: {d:'2026.11.12',t:'제목',u:'(선택) 링크'} 형식으로 추가
+const NOTICE=[];
+// 공연 영상: id = 유튜브 주소의 v= 뒤 값
+const VIDEOS=[
+{id:'kgt1NdiDvS4',d:'2025.11.27',t:'제6회 태안예술가곡제',v:'태안군문화예술회관'},
+{id:'s9TawhtY_QI',d:'2025.11.27',t:'도란도란 클래식 — 모차르트편',v:'영등포아트홀'},
+{id:'QAukRsZ7pfw',d:'2025.09.06',t:'세 남자 이야기 with 케이필하모닉오케스트라 — 하이라이트',v:'천안예술의전당'}
+];
+const INQ_MAIL='leejisun99@naver.com';
+// 메인 화면 배경 영상: mp4 파일 경로(예: 'main.mp4')를 넣으면 첫 화면이 영상으로 바뀝니다. 비워 두면 사진이 나옵니다.
+const HERO_VIDEO='';
+
+/* ================= HELPERS ================= */
+const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelectorAll(s)];
+const esc=s=>String(s||'').replace(/[&<>"]/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[m]));
+const NPC=['','b','c'];
+function poster(x){
+  return x.p?`<img loading="lazy" src="${A[x.p]}" alt="${esc(x.t)} 포스터">`
+   :`<div class="np ${NPC[x.id%3]}"><span class="y">${x.d.slice(0,4)}</span><span class="t">${esc(x.t.length>44?x.t.slice(0,43)+'…':x.t)}</span><span class="k">K-PHILHARMONIC ORCHESTRA</span></div>`;
+}
+function card(x,i,plain){
+  return `<a class="card ${plain===true?'':'rv'}" style="--d:${(i%5)*.06}s" href="#/performance/${x.id}">
+    <div class="im">${poster(x)}<span class="st ${isLive(x)?'live':''}">${isLive(x)?'예정':'종료'}</span></div>
+    <div class="d">${fd(x)}</div><div class="t">${esc(x.t)}</div><div class="v">${esc(x.v||'')}</div></a>`;
+}
+const GC0={'오케스트라 소개':['#111c44','#ffc83a'],'공연':['#4a22f4','#ff6b5e'],'소식과 정보':['#c8323a','#ffc83a'],'후원':['#0e7c7b','#ffc83a'],'공연 문의':['#1b1b22','#4a22f4']};
+const head=(crumb,h,lead)=>{const c=['#0f1d4a','#2f7df6'];return `<div class="phb" style="--c:${c[0]};--c2:${c[1]}"><div class="wrap ph"><div class="crumb">${crumb}</div><h1>${h}</h1>${lead?`<p class="lead">${lead}</p>`:''}</div></div>`};
+const car=(inner,cls='')=>`<div class="carw rv ${cls}"><button class="ar l" data-car="-1" aria-label="이전">‹</button><div class="car">${inner}</div><button class="ar r" data-car="1" aria-label="다음">›</button></div>`;
+
+/* ================= PAGES ================= */
+const hid=f=>E.find(f).id;
+const HERO=[{k:'G5',id:hid(x=>x.d==='2026-10-30')},{k:'F4',id:hid(x=>x.p==='P7')},{k:'F26',id:hid(x=>x.p==='P5')},{k:'F24',id:hid(x=>x.d==='2026-02-21')}];
+function pgHome(){
+  const liveHtml=LIVE.length?car(LIVE.map((x,i)=>card(x,i,true)).join(''))
+   :`<div class="empty rv"><b>다음 공연을 준비하고 있습니다</b>새로운 공연 일정이 확정되면 이곳에서 가장 먼저 안내해 드립니다.<br><a class="pill dark" style="margin-top:18px" href="#/contact">공연 · 초청 문의</a></div>`;
+  return `<section class="hero" id="hero">
+    ${HERO.map((s,i)=>`<div class="sl ${i?'':'on'}">${!i&&HERO_VIDEO?`<video src="${HERO_VIDEO}" poster="${A[s.k]}" autoplay muted loop playsinline></video>`:`<img src="${A[s.k]}" alt="">`}</div>`).join('')}
+    <div class="cap"><div class="wrap" id="hcap"></div></div>
+    <div class="dots">${HERO.map((s,i)=>`<button aria-label="슬라이드 ${i+1}" class="${i?'':'on'}"></button>`).join('')}</div>
+  </section>
+  <section class="blk"><div class="wrap">
+    <div class="sh rv"><div><h2>예정된 공연</h2><p>곧 만날 수 있는 케이필하모닉오케스트라의 무대</p></div><a class="more" href="#/upcoming">전체 보기 →</a></div>
+    ${liveHtml}
+  </div></section>
+  <section class="blk navy"><div class="wrap">
+    <div class="sh rv"><div><h2>지난 공연</h2><p>케이필하모닉오케스트라가 걸어온 무대</p></div><a class="more" href="#/past">전체 보기 →</a></div>
+    ${car(PAST.filter(x=>x.p).slice(0,15).map((x,i)=>card(x,i,true)).join(''))}
+  </div></section>
+  <section class="blk"><div class="wrap">
+    <div class="sh rv"><div><h2>공연 사진</h2><p>무대 위의 순간들</p></div><a class="more" href="#/gallery">전체 보기 →</a></div>
+    ${car(PHOTOS.map((p,i)=>`<figure data-lb="${i}"><img loading="lazy" src="${A[p.k]}" alt="${esc(p.x.t)}"></figure>`).join(''),'sq')}
+  </div></section>
+  <section class="blk violet"><div class="wrap">
+    <div class="sh rv"><div><h2>공연 영상</h2><p>영상으로 만나는 케이필하모닉오케스트라</p></div><a class="more" href="#/videos">전체 보기 →</a></div>
+    <div class="vgrid">${VIDEOS.slice(0,4).map((v,i)=>`<button class="vc rv" style="--d:${i*.06}s" data-vid="${i}"><div class="im"><img loading="lazy" src="https://i.ytimg.com/vi/${v.id}/hqdefault.jpg" alt="" onerror="this.remove()"></div><div class="d">${v.d}</div><div class="t">${esc(v.t)}</div><div class="v">${esc(v.v||'')}</div></button>`).join('')}</div>
+  </div></section>
+  <section class="blk cream"><div class="wrap about">
+    <div class="rv"><p class="big">2018년 창단 이래,<br><em>K-클래식</em>의 부흥과 발전을 이끄는<br>민간 오케스트라</p>
+      <p>국내외 최고의 연주자와 신인 연주자가 함께 성장하는 무대, 사회적 약자를 위한 좌석 나눔과 공연 기부로 클래식의 저변을 넓혀 갑니다.</p>
+      <div style="margin-top:22px"><a class="pill dark" href="#/about">오케스트라 소개</a></div></div>
+    <div class="ph2 rv" style="--d:.12s;aspect-ratio:3/2"><img loading="lazy" src="${A.G5}" alt="케이필하모닉오케스트라"></div>
+  </div></section>
+  <section class="blk"><div class="wrap"><div class="band rv"><div><h2>음악으로 꿈꾸는 아름다운 세상,<br>후원으로 함께해 주세요</h2><p>여러분의 후원은 더 많은 관객에게 클래식을 전하는 힘이 됩니다.</p></div><a class="pill white" href="#/support">후원회 가입 안내 →</a></div></div></section>`;
+}
+function pgAbout(){
+  return head('오케스트라 소개','오케스트라 소개','K-필하모닉오케스트라(KPO)는 좋은 음악으로 청중의, 청중에 의한, 청중을 위한 장을 만들어 갑니다.')+
+  `<section class="blk" style="padding-top:20px"><div class="wrap about">
+    <div class="rv"><p class="big">“좋은 음악으로 <em>청중의, 청중에 의한, 청중을 위한</em>” 무대</p>
+    <p>김지향 단장은 대한민국의 민간오케스트라로서 K-필하모닉오케스트라의 브랜드 가치를 드높이고 창출하며, 우리의 연주자는 물론 단원 모두에게 ‘좋은 음악으로 청중의, 청중에 의한, 청중을 위한’ 장을 만들어 나가고자 최선의 노력을 기울이고 있다.</p>
+    <p>K-필하모닉오케스트라는 2018년 창단되어 국내외 최고의 권위를 자랑하는 연주자를 비롯하여 신인 연주자를 발굴, 국내 정상급으로 성장을 도모하며, 국내외 다양한 문화교류를 통해 K-클래식을 부흥시키고 그 발전의 견인차로서 음악계의 한류를 선도하고 있다.</p>
+    <p>그동안 세종문화예술회관, 구미문화예술회관, 경주예술의전당, 광주문화예술회관, 안동문화예술의전당, 천안예술의전당, 청와대 연주회 등 다양한 콘서트 및 태안가곡제를 통해 한국 창작 가곡의 발전 및 활성화에 노력을 기울이고 있다.</p>
+    <p>또한 사회적 약자를 위해 공연마다 좌석을 마련하는 등 지속적인 공연 기부 활동으로 사회에 환원, 클래식 저변확대에 책임을 다하며 클래식 음악의 새로운 변화를 주도함으로써 가장 주목받는 오케스트라로 성장하고 있다.</p></div>
+    <div class="ph2 rv" style="--d:.15s"><img src="${A.G4}" alt="케이필하모닉오케스트라 연주 모습"></div>
+  </div>
+  </section>
+  <section class="blk soft"><div class="wrap"><div class="sh rv"><h2>공연 사진</h2></div>
+    <div class="pc rv" id="pc"><div class="trk">${[...PC,...PC].map(k=>{const i=PHOTOS.findIndex(p=>p.k===k);return `<figure data-lb="${i}"><img src="${A[k]}" alt="${esc(PHOTOS[i].x.t)}"></figure>`}).join('')}</div></div>
+  </div></section>`;
+}
+const PC=['G5','F4','F26','G1','F0'];let pcT=null;
+function photoCar(){const el=$('#pc');if(!el)return;const t=$('.trk',el);let i=0;
+  pcT=setInterval(()=>{const f=t.children[0],step=f.offsetWidth+parseFloat(getComputedStyle(t).columnGap||16);i++;
+    t.style.transition='transform .9s cubic-bezier(.2,.7,.1,1)';t.style.transform=`translateX(${-i*step}px)`;
+    if(i>=PC.length)setTimeout(()=>{i=0;t.style.transition='none';t.style.transform='translateX(0)'},950)},3000)}
+function pgHistory(){
+  const ys={};E.forEach(x=>(ys[x.d.slice(0,4)]=ys[x.d.slice(0,4)]||[]).push(x));
+  const years=Object.keys(ys).sort((a,b)=>b-a);
+  return head('공연','단체 연혁','2018년 창단부터 오늘까지, 케이필하모닉오케스트라가 걸어온 길입니다.')+
+  `<section class="blk" style="padding-top:10px"><div class="wrap">
+   <div class="tabs rv">${years.map(y=>`<button class="pill" data-jump="y${y}">${y}</button>`).join('')}</div>
+   ${years.map(y=>`<div class="yr rv" id="y${y}"><h3>${y}</h3><ul>${ys[y].sort((a,b)=>dt(b.d)-dt(a.d)||b.id-a.id).map(x=>{
+     const md=x.dm?x.d.slice(0,7).replace('-','.'):fd(x);
+     const body=`<b>${esc(x.t)}</b>${x.v?`<span>${esc(x.v)}</span>`:''}`;
+     return `<li><time>${md}</time><div>${x.k==='m'?body:`<a href="#/performance/${x.id}">${body}</a>`}</div></li>`}).join('')}</ul></div>`).join('')}
+  </div></section>`;
+}
+function pgOrg(){
+  const [kim,young,yeo,na,jh,pd,lee]=PEOPLE;
+  const nd=(p,c='')=>`<a class="node ${c}" href="#/members"><small>${p.r}</small><b>${p.n}</b></a>`;
+  return head('오케스트라 소개','조직도','케이필하모닉오케스트라의 조직 구성입니다.')+
+  `<section class="blk" style="padding-top:20px"><div class="wrap">
+    <div class="org rv">${nd(kim,'lead')}<div class="stem"></div>
+      <div class="row" style="width:min(100%,1080px)">
+        <div class="col">${nd(young)}</div><div class="col">${nd(yeo)}</div><div class="col">${nd(na)}<div class="stem"></div><div class="node" style="border-style:dashed"><small>Orchestra</small><b>단원</b></div></div>
+        <div class="col">${nd(jh)}<div class="stem"></div><div class="row r2"><div class="col">${nd(lee)}</div><div class="col">${nd(pd)}</div></div></div>
+      </div></div>
+  </div></section>`;
+}
+function pgMembers(){
+  return head('오케스트라 소개','단원소개','케이필하모닉오케스트라를 이끄는 사람들을 소개합니다.')+
+  `<section class="blk" style="padding-top:20px"><div class="wrap"><div class="people">
+    ${PEOPLE.map((p,i)=>`<article class="person rv" style="--d:${i*.07}s"><div class="im">${p.img?`<img loading="lazy" src="${A[p.img]}" alt="${p.r} ${p.n}">`:`<div class="ini">${p.n[0]}</div>`}</div>
+      <div class="ro">${p.r}</div><h4>${p.n}<small>${p.en}</small></h4><ul>${p.b.map(b=>`<li>${esc(b)}</li>`).join('')}</ul></article>`).join('')}
+  </div><div class="empty rv" style="margin-top:clamp(36px,5vw,64px)"><b>파트별 단원 소개는 준비 중입니다</b>단원 명단이 정리되는 대로 업데이트하겠습니다.</div></div></section>`;
+}
+function pgLocation(){
+  const ad='서울특별시 서대문구 연희동 206-3',q=encodeURIComponent(ad);
+  return head('오케스트라 소개','오시는 길')+
+  `<section class="blk" style="padding-top:20px"><div class="wrap">
+    <div class="map rv"><iframe loading="lazy" title="지도" src="https://maps.google.com/maps?q=${q}&z=16&hl=ko&output=embed"></iframe></div>
+    <div class="ct" style="margin-top:clamp(26px,3vw,44px)">
+      <dl class="info rv">
+        <div><dt>주소</dt><dd>${ad}</dd></div>
+        <div><dt>전화</dt><dd><a href="tel:0269255826">02-6925-5826</a></dd></div>
+        <div><dt>팩스</dt><dd>02-2043-6409</dd></div>
+        <div><dt>이메일</dt><dd><a href="mailto:kphilorchestra@gmail.com">kphilorchestra@gmail.com</a></dd></div>
+      </dl>
+      <div class="rv" style="--d:.1s"><p style="color:var(--ink2)">지도 앱에서 길찾기를 이용하시면 편리합니다.</p>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:16px">
+          <a class="pill dark" target="_blank" rel="noopener" href="https://map.naver.com/p/search/${q}">네이버 지도</a>
+          <a class="pill line" target="_blank" rel="noopener" href="https://map.kakao.com/?q=${q}">카카오맵</a>
+          <a class="pill line" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=${q}">구글 지도</a></div></div>
+    </div>
+  </div></section>`;
+}
+const PER=20;
+function pgPast(page){
+  page=Math.max(1,parseInt(page)||1);
+  const pages=Math.max(1,Math.ceil(PAST.length/PER));page=Math.min(page,pages);
+  const items=PAST.slice((page-1)*PER,page*PER);const pg=n=>`#/past/${n}`;
+  return head('공연','지난 공연','케이필하모닉오케스트라가 걸어온 무대입니다. 포스터를 누르면 상세 정보를 볼 수 있습니다.')+
+  `<section class="blk" style="padding-top:20px"><div class="wrap">
+    <div class="grid5 fix">${items.map(card).join('')}</div>
+    ${pages>1?`<nav class="pager" aria-label="페이지"><button ${page<=1?'disabled':''} data-go="${pg(page-1)}" aria-label="이전">‹</button>${Array.from({length:pages},(_,i)=>`<button class="${i+1===page?'on':''}" data-go="${pg(i+1)}" ${i+1===page?'aria-current="page"':''}>${i+1}</button>`).join('')}<button ${page>=pages?'disabled':''} data-go="${pg(page+1)}" aria-label="다음">›</button></nav>`:''}
+  </div></section>`;
+}
+function pgUpcoming(){
+  return head('공연','예정된 공연','곧 만날 수 있는 케이필하모닉오케스트라의 무대입니다.')+
+  `<section class="blk" style="padding-top:20px"><div class="wrap">
+    ${LIVE.length?`<div class="grid5 fix">${LIVE.map(card).join('')}</div>`:`<div class="empty rv"><b>현재 예정된 공연이 없습니다</b>새로운 공연 일정이 확정되면 안내해 드리겠습니다.<br><a class="pill dark" style="margin-top:18px" href="#/past">지난 공연 보기</a></div>`}
+  </div></section>`;
+}
+function pgDetail(id){
+  const x=E[+id];if(!x||x.k==='m')return pgPast();
+  const i=ALL.indexOf(x),pv=ALL[i+1],nx=ALL[i-1];
+  const row=(k,v)=>v?`<div><dt>${k}</dt><dd>${esc(v)}</dd></div>`:'';
+  const ph=(x.f||[]).map(k=>{const n=PHOTOS.findIndex(p=>p.k===k);return `<figure data-lb="${n}"><img loading="lazy" src="${A[k]}" alt="${esc(x.t)}"></figure>`}).join('');
+  return `<div class="wrap ph" style="padding-bottom:0;padding-top:28px"><div class="crumb">공연 / <a href="${isLive(x)?'#/upcoming':'#/past'}">${isLive(x)?'예정된 공연':'지난 공연'}</a></div></div>
+  <section class="blk" style="padding-top:16px"><div class="wrap detail">
+    <div class="po rv">${poster(x)}</div>
+    <div class="rv" style="--d:.1s"><span class="pill ${isLive(x)?'accent':'line'}" style="height:34px;font-size:13px;padding:0 14px;cursor:default">${isLive(x)?'예정된 공연':'지난 공연'}</span>
+      <h1 style="margin-top:14px">${esc(x.t)}</h1>
+      <dl class="dl">${row('일시',fdl(x))}${row('장소',x.v)}${row('출연',x.c)}${row('주최·주관',x.o)}${row('연주','케이필하모닉오케스트라')}</dl>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:26px">
+        ${pv?`<a class="pill line" href="#/performance/${pv.id}">← 이전 공연</a>`:''}${nx?`<a class="pill line" href="#/performance/${nx.id}">다음 공연 →</a>`:''}<a class="pill dark" href="${isLive(x)?'#/upcoming':'#/past'}">목록</a></div>
+    </div></div>
+    ${ph?`<div class="wrap" style="margin-top:clamp(40px,6vw,80px)"><div class="sh rv"><h2>공연 사진</h2></div><div class="gal rv">${ph}</div></div>`:''}
+  </section>`;
+}
+function pgGallery(sel){
+  const groups=[...new Set(PHOTOS.map(p=>p.x.id))].map(id=>E[id]);
+  const g=groups.find(x=>x.id==sel);
+  if(!g)return head('소식과 정보','공연 사진','공연을 누르면 해당 공연의 사진을 모두 볼 수 있습니다.')+
+  `<section class="blk" style="padding-top:10px"><div class="wrap"><div class="vgrid">
+    ${groups.map((x,i)=>`<a class="vc ab rv" style="--d:${(i%4)*.06}s" href="#/gallery/${x.id}"><div class="im"><img loading="lazy" src="${A[x.f[0]]}" alt=""><span class="cnt">사진 ${x.f.length}장</span></div><div class="d">${fd(x)}</div><div class="t">${esc(x.t)}</div><div class="v">${esc(x.v||'')}</div></a>`).join('')}
+  </div></div></section>`;
+  const list=PHOTOS.map((p,i)=>({...p,i})).filter(p=>p.x.id==g.id);
+  return head('소식과 정보 / 공연 사진',esc(g.t),fd(g)+(g.v?' · '+esc(g.v):''))+
+  `<section class="blk" style="padding-top:6px"><div class="wrap">
+    <div class="rv" style="margin-bottom:20px"><a class="pill line" href="#/gallery">← 공연 사진 목록</a></div>
+    <div class="gal">${list.map((p,n)=>`<figure class="rv" style="--d:${(n%4)*.05}s" data-lb="${p.i}"><img loading="lazy" src="${A[p.k]}" alt="${esc(p.x.t)}"></figure>`).join('')}</div>
+  </div></section>`;
+}
+const thumb=k=>k&&A[k]?`<img loading="lazy" src="${A[k]}" alt="">`:`<img class="mk" src="${A.mark}" alt="">`;
+function pgPress(){
+  return head('소식과 정보','보도기사','언론에 소개된 케이필하모닉오케스트라의 소식입니다. 기사를 누르면 원문으로 연결됩니다.')+
+  `<section class="blk" style="padding-top:20px"><div class="wrap" style="max-width:1100px">
+    <div class="tot rv">Total ${PRESS.length}</div>
+    <div class="list rv">${PRESS.map(p=>`<a href="${p.u}" target="_blank" rel="noopener"><span class="th">${thumb(p.img)}</span><h3>[${esc(p.s)}] ${esc(p.t)}</h3><time>${p.d}</time></a>`).join('')}</div>
+  </div></section>`;
+}
+function pgNotice(){
+  return head('소식과 정보','공지사항')+
+  `<section class="blk" style="padding-top:20px"><div class="wrap" style="max-width:1100px">
+    <div class="tot rv">Total ${NOTICE.length}</div>
+    ${NOTICE.length?`<div class="list nt rv">${NOTICE.map(n=>n.u?`<a href="${n.u}" target="_blank" rel="noopener"><h3>${esc(n.t)}</h3><time>${n.d}</time></a>`:`<div class="it"><h3>${esc(n.t)}</h3><time>${n.d}</time></div>`).join('')}</div>`
+     :`<div class="empty rv"><b>등록된 공지사항이 없습니다</b>새로운 소식이 있으면 이곳에 안내해 드리겠습니다.</div>`}
+  </div></section>`;
+}
+function pgVideos(){
+  return head('소식과 정보','공연 영상','케이필하모닉오케스트라의 무대를 영상으로 만나보세요.')+
+  `<section class="blk" style="padding-top:20px"><div class="wrap">
+    <div class="vgrid">${VIDEOS.map((v,i)=>`<button class="vc rv" style="--d:${(i%4)*.06}s" data-vid="${i}"><div class="im"><img loading="lazy" src="https://i.ytimg.com/vi/${v.id}/hqdefault.jpg" alt="" onerror="this.remove()"></div><div class="d">${v.d}</div><div class="t">${esc(v.t)}</div><div class="v">${esc(v.v||'')}</div></button>`).join('')}</div>
+  </div></section>`;
+}
+function pgSupport(){
+  return head('후원','후원 안내','케이필하모닉오케스트라는 공연마다 사회적 약자를 위한 좌석을 마련하고, 학교와 지역으로 찾아가 클래식을 나눕니다. 여러분의 후원이 그 무대를 이어 갑니다.')+
+  `<section class="blk" style="padding-top:10px"><div class="wrap">
+    <div class="sup">
+      <article class="rv"><div class="n">01</div><h3>개인 후원</h3><p>정기 또는 일시 후원으로 오케스트라의 연주 활동과 신인 연주자 발굴을 응원해 주세요.</p></article>
+      <article class="rv" style="--d:.1s"><div class="n">02</div><h3>기업 · 단체 후원</h3><p>기업의 사회공헌 활동과 연계한 공연 협찬, 임직원·고객 초청 음악회 등 맞춤형 파트너십을 제안해 드립니다.</p></article>
+      <article class="rv" style="--d:.2s"><div class="n">03</div><h3>나눔 공연 후원</h3><p>학교로 찾아가는 오케스트라, 장애인의 날 기념공연 등 문화 나눔 무대를 함께 만들어 주세요.</p></article>
+    </div>
+    <div class="band rv" style="margin-top:clamp(30px,4vw,56px)"><div><h2>후원 문의</h2><p>후원 방법과 절차는 아래 연락처로 문의해 주시면 자세히 안내해 드립니다.<br>TEL 02-6925-5826 · kphilorchestra@gmail.com</p></div><a class="pill white" href="#/contact">후원 문의하기 →</a></div>
+  </div></section>`;
+}
+function pgContact(){
+  return head('공연 문의','공연 문의')+
+  `<section class="blk" style="padding-top:10px"><div class="wrap"><form class="frm rv" id="cf" novalidate>
+    <ul style="margin:6px 0 10px 20px;font-weight:500"><li>문의 내용 작성해 주시면 확인 후 답변드립니다.</li></ul>
+    <div class="g2">
+      <div><label for="c1">성함<em>*</em></label><input id="c1" name="성함" required autocomplete="name"></div>
+      <div><label for="c2">핸드폰 번호<em>*</em></label><input id="c2" name="핸드폰 번호" required type="tel" autocomplete="tel" inputmode="tel"></div>
+      <div><label for="c3">공연 희망 날짜</label><input id="c3" name="공연 희망 날짜" type="date"></div>
+      <div><label for="c4">기관(회사)명</label><input id="c4" name="기관(회사)명" autocomplete="organization"></div>
+    </div>
+    <label for="c5">문의 내용</label><textarea id="c5" name="문의 내용"></textarea>
+    <label for="c6">이메일</label><input id="c6" name="이메일" type="email" placeholder="Email Address" autocomplete="email">
+    <label class="ag"><input type="checkbox" id="c7"> 개인정보 수집 및 이용에 동의합니다. <button type="button" id="pvb">내용보기</button></label>
+    <div class="pv" id="pv">수집 항목: 성함, 핸드폰 번호, 이메일, 기관(회사)명, 공연 희망 날짜, 문의 내용<br>수집 목적: 공연 문의 확인 및 답변<br>보유 기간: 문의 처리 완료 후 1년 (요청 시 즉시 삭제)<br>동의를 거부할 수 있으며, 거부 시 문의 접수가 제한됩니다.</div>
+    <div class="msg" id="cmsg" role="status"></div>
+    <div class="act"><button class="pill dark" type="submit" style="height:56px;padding:0 34px;font-size:16px">등록하기</button></div>
+  </form></div></section>`;
+}
+
+/* ================= ROUTER ================= */
+const app=$('#app');let heroT=null,cur='',route=location.hash||'#/',stack=[];const lh=()=>location.hash||'#/';
+function parse(){return route.replace(/^#\/?/,'').split('/').filter(Boolean)}
+function render(){
+  const r=parse();const k=r[0]||'home';cur=r.join('/');
+  clearInterval(heroT);clearInterval(pcT);
+  const R={home:pgHome,about:pgAbout,org:pgOrg,members:pgMembers,location:pgLocation,history:pgHistory,upcoming:pgUpcoming,
+    past:()=>pgPast(r[1]),performances:()=>pgPast(1),performance:()=>pgDetail(r[1]),gallery:()=>pgGallery(r[1]),
+    press:pgPress,notice:pgNotice,videos:pgVideos,support:pgSupport,contact:pgContact};
+  const html=(R[k]||pgHome)();
+  app.innerHTML=`<div class="page">${html}</div>`;
+  const sub=k!=='home';
+  $('#fab').classList.toggle('show',sub);
+  const G={about:'about',org:'about',members:'about',location:'about',history:'perf',upcoming:'perf',past:'perf',performance:'perf',press:'news',notice:'news',gallery:'news',videos:'news',support:'support',contact:'contact'};
+  $$('.quick [data-q]').forEach(a=>a.classList.toggle('on',a.dataset.q===G[k]));if(document.activeElement&&document.activeElement.blur)document.activeElement.blur();
+  closeMenu();closeVid();window.scrollTo(0,0);observe();if(k==='home')hero();if(k==='about')photoCar();
+  document.title=(sub?($('.ph h1')?.textContent||$('.detail h1')?.textContent||'')+' | ':'')+'케이필하모닉오케스트라';
+}
+// 주소(#)를 바꿀 수 없는 환경(미리보기 등)에서도 화면 전환·뒤로가기가 되도록 내부 기록을 함께 씁니다
+function go(h){if(h===route){render();return}stack.push(route);route=h;try{location.hash=h}catch(e){}if(lh()!==h)render()}
+function back(){if(!stack.length){if(route!=='#/')go('#/');return}if(lh()===route)history.back();else{route=stack.pop();render()}}
+addEventListener('hashchange',()=>{if(lh()!==route){route=lh();stack.pop()}render()});
+document.addEventListener('click',e=>{
+  const a=e.target.closest('a[href^="#/"]');
+  if(a){if(a.dataset.jump)return;e.preventDefault();go(a.getAttribute('href'));return}
+  const g=e.target.closest('[data-go]');if(g){go(g.dataset.go);return}
+  const j=e.target.closest('[data-jump]');if(j){e.preventDefault();const t=document.getElementById(j.dataset.jump);if(t)window.scrollTo({top:t.getBoundingClientRect().top+scrollY-80,behavior:'smooth'});return}
+  const c=e.target.closest('[data-car]');if(c){const el=c.parentNode.querySelector('.car');el.scrollBy({left:+c.dataset.car*el.clientWidth*.82,behavior:'smooth'});return}
+  const f=e.target.closest('[data-lb]');if(f){openLb(+f.dataset.lb);return}
+  const v=e.target.closest('[data-vid]');if(v){openVid(+v.dataset.vid);return}
+  if(e.target.id==='pvb'){$('#pv').classList.toggle('on')}
+});
+$('#fab').onclick=back;
+document.addEventListener('submit',async e=>{if(e.target.id!=='cf')return;e.preventDefault();
+  const m=$('#cmsg'),say=(c,t)=>{m.className='msg '+c;m.textContent=t};
+  if(!$('#c1').value.trim()||!$('#c2').value.trim()){say('er','성함과 핸드폰 번호는 필수 입력 항목입니다.');return}
+  if(!$('#c7').checked){say('er','개인정보 수집 및 이용에 동의해 주세요.');return}
+  const data={_subject:`[홈페이지 공연 문의] ${$('#c1').value} ${$('#c4').value?'('+$('#c4').value+')':''}`,_template:'table',_captcha:'false'};
+  $$('#cf [name]').forEach(i=>data[i.name]=i.value||'-');
+  const btn=$('#cf button[type=submit]');btn.disabled=true;btn.textContent='보내는 중…';
+  try{
+    const r=await fetch('https://formsubmit.co/ajax/'+INQ_MAIL,{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify(data)});
+    const j=await r.json();if(!r.ok||String(j.success)!=='true')throw 0;
+    say('ok','문의가 정상적으로 등록되었습니다. 확인 후 답변드리겠습니다.');e.target.reset();
+  }catch(_){
+    const b=Object.entries(data).filter(([k])=>k[0]!=='_').map(([k,v])=>k+': '+v).join('\n');
+    say('er','자동 전송에 실패했습니다. 메일 앱으로 연결합니다.');
+    location.href=`mailto:${INQ_MAIL}?subject=${encodeURIComponent(data._subject)}&body=${encodeURIComponent(b)}`;
+  }
+  btn.disabled=false;btn.textContent='등록하기';
+});
+
+/* menu */
+const menu=$('#menu');
+function openMenu(){menu.classList.add('open');document.body.classList.add('lock');$$('#menu li a').forEach((a,i)=>a.style.transitionDelay=(.15+i*.04)+'s')}
+function closeMenu(){menu.classList.remove('open');if(!$('#loader')||$('#loader').classList.contains('done'))document.body.classList.remove('lock')}
+$('#mbtn').onclick=openMenu;$('#mclose').onclick=closeMenu;
+addEventListener('keydown',e=>{if(e.key==='Escape'){closeMenu();closeLb();closeVid()}if($('#lb').classList.contains('open')){if(e.key==='ArrowRight')stepLb(1);if(e.key==='ArrowLeft')stepLb(-1)}});
+
+/* hero */
+function hero(){
+  const sl=$$('#hero .sl'),dots=$$('#hero .dots button'),cap=$('#hcap');let i=0;
+  const show=n=>{i=(n+HERO.length)%HERO.length;const s=HERO[i];
+    sl.forEach((e,k)=>e.classList.toggle('on',k===i));
+    dots.forEach((e,k)=>{e.classList.remove('on');if(k===i){void e.offsetWidth;e.classList.add('on')}});
+    cap.innerHTML=`<div class="txt"><h1>${esc(E[s.id].t).replace(/K-필/g,'K\u2011필')}</h1></div><div class="txt"><div class="cta"><a class="pill white" href="#/performance/${s.id}">자세히 보기</a></div></div>`};
+  dots.forEach((d,k)=>d.onclick=()=>{show(k);clearInterval(heroT);heroT=setInterval(()=>show(i+1),6000)});
+  show(0);heroT=setInterval(()=>show(i+1),6000);
+  let sx=null;const h=$('#hero');h.addEventListener('touchstart',e=>sx=e.touches[0].clientX,{passive:true});
+  h.addEventListener('touchend',e=>{if(sx==null)return;const dx=e.changedTouches[0].clientX-sx;if(Math.abs(dx)>50){show(i+(dx<0?1:-1));clearInterval(heroT);heroT=setInterval(()=>show(i+1),6000)}sx=null});
+}
+
+/* reveal + counters */
+let io;
+function observe(){
+  if(io)io.disconnect();
+  if(!('IntersectionObserver' in window)){$$('.rv').forEach(e=>e.classList.add('in'));return}
+  io=new IntersectionObserver(es=>es.forEach(en=>{if(!en.isIntersecting)return;en.target.classList.add('in');io.unobserve(en.target);
+    $$('[data-n]',en.target).forEach(count)}),{rootMargin:'0px 0px -8% 0px',threshold:.05});
+  $$('.rv').forEach(e=>io.observe(e));
+}
+function count(el){const to=+el.dataset.n;if(to>1900){return}const t0=performance.now();
+  (function f(t){const p=Math.min(1,(t-t0)/1100);el.textContent=Math.round(to*(1-Math.pow(1-p,3)));if(p<1)requestAnimationFrame(f)})(t0)}
+
+/* lightbox */
+const lb=$('#lb');let li=0;
+function openLb(i){li=i;const p=PHOTOS[i];if(!p)return;$('img',lb).src=A[p.k];$('p',lb).textContent=`${fd(p.x)} · ${p.x.t}`;lb.classList.add('open')}
+function closeLb(){lb.classList.remove('open')}
+function stepLb(d){openLb((li+d+PHOTOS.length)%PHOTOS.length)}
+$('.x',lb).onclick=closeLb;$('.pv',lb).onclick=()=>stepLb(-1);$('.nx',lb).onclick=()=>stepLb(1);
+lb.onclick=e=>{if(e.target===lb)closeLb()};
+
+const SOCIAL={instagram:'',facebook:'',youtube:'',mail:''}; // 주소를 넣으면 상단 아이콘에 연결됩니다 (mail은 메일 주소)
+$$('[data-soc]').forEach(a=>{const u=SOCIAL[a.dataset.soc];if(u){a.href=(a.dataset.soc==='mail'&&!/^mailto:/.test(u)?'mailto:':'')+u;if(a.dataset.soc!=='mail'){a.target='_blank';a.rel='noopener'}}else a.addEventListener('click',e=>e.preventDefault())});
+/* video modal */
+const vm=$('#vm');
+function openVid(i){const v=VIDEOS[i];if(!v)return;
+  $('.fr',vm).innerHTML=`<iframe src="https://www.youtube.com/embed/${v.id}?autoplay=1&rel=0" title="${esc(v.t)}" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>`;
+  $('p',vm).innerHTML=`${v.d} · ${esc(v.t)} <a href="https://www.youtube.com/watch?v=${v.id}" target="_blank" rel="noopener">YouTube에서 보기 ↗</a>`;vm.classList.add('open')}
+function closeVid(){vm.classList.remove('open');$('.fr',vm).innerHTML=''}
+$('.x',vm).onclick=closeVid;vm.onclick=e=>{if(e.target===vm)closeVid()};
+/* chrome */
+const nav=$('#nav'),tt=$('#totop');
+addEventListener('scroll',()=>{nav.classList.toggle('stuck',nav.getBoundingClientRect().top<=0&&scrollY>10);tt.classList.toggle('show',scrollY>700)},{passive:true});
+tt.onclick=()=>window.scrollTo({top:0,behavior:'smooth'});
+$('#yy').textContent=new Date().getFullYear();
+$('#hmark').src=A.mark;$('#lmark').src=A.mark;
+
+/* loader */
+(function(){
+  const lt=$('#lt');let n=0;
+  ['K-PHILHARMONIC','ORCHESTRA'].forEach(w=>{const r=document.createElement('div');r.className='lr';
+    [...w].forEach(ch=>{const s=document.createElement('span');s.textContent=ch;s.style.animationDelay=(.25+n++*.045)+'s';r.appendChild(s)});lt.appendChild(r)});
+  render();
+  const end=()=>{$('#loader').classList.add('done');document.body.classList.remove('lock');setTimeout(()=>$('#loader').remove(),1200)};
+  setTimeout(end,matchMedia('(prefers-reduced-motion:reduce)').matches?300:2300);
+})();
+</script>
+</body>
+</html>
