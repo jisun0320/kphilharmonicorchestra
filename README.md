@@ -2,11 +2,10 @@
 
 - `index.html` : 홈페이지 본체 (공연·보도기사·영상 목록도 이 파일 안에 있습니다)
 - `assets/` : 포스터(P), 공연 사진(F, G), 프로필 사진, 로고
-- `mobile-preview.html` : PC에서 휴대폰 화면 크기로 미리 보는 페이지 (선택 사항)
 
 ## GitHub Pages로 공개하는 방법
 1. GitHub에서 새 저장소(Repository)를 Public으로 만듭니다.
-2. 이 폴더 안의 파일과 `assets` 폴더를 저장소 최상위에 올립니다. (Add file → Upload files)
+2. `index.html`과 `assets` 폴더를 저장소 최상위에 올립니다. (Add file → Upload files 화면에 `assets` 폴더를 통째로 끌어다 놓아야 폴더째 올라갑니다)
 3. 저장소의 Settings → Pages → Branch를 `main` / `(root)`로 선택하고 Save.
 4. 1~2분 뒤 `https://<아이디>.github.io/<저장소이름>/` 주소로 접속됩니다.
 

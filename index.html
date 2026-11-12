@@ -720,6 +720,8 @@ const INQ_MAIL='leejisun99@naver.com';
 // 메인 화면 배경 영상: mp4 파일 경로(예: 'main.mp4')를 넣으면 첫 화면이 영상으로 바뀝니다. 비워 두면 사진이 나옵니다.
 const HERO_VIDEO='';
 
+// 이미지가 assets 폴더 없이 최상위에 올라간 경우에도 보이도록 한 번 더 찾아봅니다
+addEventListener('error',e=>{const t=e.target;if(t&&t.tagName==='IMG'&&!t.dataset.rt&&/assets\//.test(t.getAttribute('src')||'')){t.dataset.rt=1;t.src=t.getAttribute('src').replace('assets/','')}},true);
 /* ================= HELPERS ================= */
 const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelectorAll(s)];
 const esc=s=>String(s||'').replace(/[&<>"]/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[m]));
