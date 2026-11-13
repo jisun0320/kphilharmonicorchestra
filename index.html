@@ -522,6 +522,8 @@ form input:focus,form textarea:focus,form select:focus{box-shadow:0 0 0 4px rgba
 @media(max-width:1100px) and (min-width:821px){.row.r2 .node{min-width:104px;width:auto;padding:12px 8px}.row.r2 .col{padding:0 4px}}
 @media(max-width:820px){.row.r2{width:auto}}
 @media(max-width:1100px) and (min-width:821px){.node.lead{width:auto;min-width:150px;padding:12px 22px}}
+.band p{text-align:left;word-break:keep-all}
+@media(max-width:720px){.ftag{display:none}footer{padding-bottom:92px}.nav{background:#fff;backdrop-filter:none;-webkit-backdrop-filter:none}}
 </style>
 </head>
 <body class="lock">
@@ -584,7 +586,7 @@ form input:focus,form textarea:focus,form select:focus{box-shadow:0 0 0 4px rgba
 <footer>
   <div class="wrap">
     <div class="f1">
-      <div><div class="nm">K-Philharmonic<br>Orchestra</div><p style="opacity:.7;margin-top:14px">좋은 음악으로 청중의, 청중에 의한,<br>청중을 위한 무대를 만듭니다.</p></div>
+      <div><div class="nm">K-Philharmonic<br>Orchestra</div><p class="ftag" style="opacity:.7;margin-top:14px">좋은 음악으로 청중의, 청중에 의한,<br>청중을 위한 무대를 만듭니다.</p></div>
       <div><h5>오케스트라 소개</h5><ul><li><a href="#/about">오케스트라 소개</a></li><li><a href="#/org">조직도</a></li><li><a href="#/members">단원소개</a></li><li><a href="#/location">오시는 길</a></li></ul></div>
       <div><h5>공연</h5><ul><li><a href="#/history">단체 연혁</a></li><li><a href="#/upcoming">예정된 공연</a></li><li><a href="#/past">지난 공연</a></li></ul></div>
       <div><h5>소식과 정보</h5><ul><li><a href="#/press">보도기사</a></li><li><a href="#/notice">공지사항</a></li><li><a href="#/gallery">공연 사진</a></li><li><a href="#/videos">공연 영상</a></li><li><a href="#/support">후원</a></li><li><a href="#/contact">공연 문의</a></li></ul></div>
@@ -603,7 +605,7 @@ form input:focus,form textarea:focus,form select:focus{box-shadow:0 0 0 4px rgba
 <div id="lb"><button class="x" aria-label="닫기">✕</button><button class="pv" aria-label="이전">‹</button><button class="nx" aria-label="다음">›</button><img alt=""><p></p></div>
 
 <script>
-const A={"P0": "assets/P0.jpg", "P1": "assets/P1.jpg", "P2": "assets/P2.jpg", "P3": "assets/P3.jpg", "P4": "assets/P4.jpg", "P5": "assets/P5.jpg", "P6": "assets/P6.jpg", "P7": "assets/P7.jpg", "P8": "assets/P8.jpg", "P9": "assets/P9.jpg", "P10": "assets/P10.jpg", "P11": "assets/P11.jpg", "P12": "assets/P12.jpg", "P13": "assets/P13.jpg", "P14": "assets/P14.jpg", "P15": "assets/P15.jpg", "P16": "assets/P16.jpg", "P17": "assets/P17.jpg", "P18": "assets/P18.jpg", "P19": "assets/P19.jpg", "P20": "assets/P20.jpg", "P21": "assets/P21.jpg", "F0": "assets/F0.jpg", "F1": "assets/F1.jpg", "F2": "assets/F2.jpg", "F3": "assets/F3.jpg", "F4": "assets/F4.jpg", "F6": "assets/F6.jpg", "F7": "assets/F7.jpg", "F8": "assets/F8.jpg", "F9": "assets/F9.jpg", "F10": "assets/F10.jpg", "F12": "assets/F12.jpg", "F13": "assets/F13.jpg", "F14": "assets/F14.jpg", "F15": "assets/F15.jpg", "F16": "assets/F16.jpg", "F17": "assets/F17.jpg", "F18": "assets/F18.jpg", "F20": "assets/F20.jpg", "F22": "assets/F22.jpg", "F24": "assets/F24.jpg", "F25": "assets/F25.jpg", "F26": "assets/F26.jpg", "F27": "assets/F27.jpg", "F28": "assets/F28.jpg", "F29": "assets/F29.jpg", "F30": "assets/F30.jpg", "F31": "assets/F31.jpg", "G0": "assets/G0.jpg", "G1": "assets/G1.jpg", "G2": "assets/G2.jpg", "G3": "assets/G3.jpg", "G4": "assets/G4.jpg", "G5": "assets/G5.jpg", "G6": "assets/G6.jpg", "G7": "assets/G7.jpg", "kim": "assets/kim.jpg", "young": "assets/young.jpg", "yeo": "assets/yeo.jpg", "na": "assets/na.jpg", "logo": "assets/logo.png", "mark": "assets/mark.png"};
+const A={"P0": "assets/P0.jpg", "P1": "assets/P1.jpg", "P2": "assets/P2.jpg", "P3": "assets/P3.jpg", "P4": "assets/P4.jpg", "P5": "assets/P5.jpg", "P6": "assets/P6.jpg", "P7": "assets/P7.jpg", "P8": "assets/P8.jpg", "P9": "assets/P9.jpg", "P10": "assets/P10.jpg", "P11": "assets/P11.jpg", "P12": "assets/P12.jpg", "P13": "assets/P13.jpg", "P14": "assets/P14.jpg", "P15": "assets/P15.jpg", "P16": "assets/P16.jpg", "P17": "assets/P17.jpg", "P18": "assets/P18.jpg", "P19": "assets/P19.jpg", "P20": "assets/P20.jpg", "P21": "assets/P21.jpg", "P22": "assets/P22.jpg", "F0": "assets/F0.jpg", "F1": "assets/F1.jpg", "F2": "assets/F2.jpg", "F3": "assets/F3.jpg", "F4": "assets/F4.jpg", "F6": "assets/F6.jpg", "F7": "assets/F7.jpg", "F8": "assets/F8.jpg", "F9": "assets/F9.jpg", "F10": "assets/F10.jpg", "F12": "assets/F12.jpg", "F13": "assets/F13.jpg", "F14": "assets/F14.jpg", "F15": "assets/F15.jpg", "F16": "assets/F16.jpg", "F17": "assets/F17.jpg", "F18": "assets/F18.jpg", "F20": "assets/F20.jpg", "F22": "assets/F22.jpg", "F24": "assets/F24.jpg", "F25": "assets/F25.jpg", "F26": "assets/F26.jpg", "F27": "assets/F27.jpg", "F28": "assets/F28.jpg", "F29": "assets/F29.jpg", "F30": "assets/F30.jpg", "F31": "assets/F31.jpg", "G0": "assets/G0.jpg", "G1": "assets/G1.jpg", "G2": "assets/G2.jpg", "G3": "assets/G3.jpg", "G4": "assets/G4.jpg", "G5": "assets/G5.jpg", "G6": "assets/G6.jpg", "G7": "assets/G7.jpg", "kim": "assets/kim.jpg", "young": "assets/young.jpg", "yeo": "assets/yeo.jpg", "na": "assets/na.jpg", "logo": "assets/logo.png", "mark": "assets/mark.png"};
 /* ================= DATA ================= */
 // k:'m' = 연혁에만 표시되는 단체 이정표. p = 포스터, f = 공연 사진
 const SCH24='2024 송파구 학교로 찾아가는 오케스트라';
@@ -661,7 +663,7 @@ const E=[
 {d:'2026-06-23',t:SCH26+' — 거원중학교',v:'거원중학교'},
 {d:'2026-06-25',t:SCH26+' — 송파초등학교',v:'송파초등학교'},
 {d:'2026-10-22',tm:'19:00',t:'영웅음악회 — 클래식 & 뮤지컬 갈라 콘서트',v:'CTS아트홀 (서울 동작구)',c:'지휘 김영준 · 사회 권상희 · 박혜민, 김중일, 이승왕',o:'동작문화재단',p:'P17'},
-{d:'2026-10-30',tm:'19:30',t:'천안예술의전당 가을음악회 — 씨네마 콘서트 with K-필하모닉오케스트라',v:'천안예술의전당',c:'하모니시스트 박종성, 소프라노 최정원, 뮤지컬 배우 김바울',o:'천안문화재단',f:['G5','G0','G1','G6','G2','G4','G7','G3']},
+{d:'2026-10-30',tm:'19:30',t:'천안예술의전당 가을음악회 — 씨네마 콘서트 with K-필하모닉오케스트라',v:'천안예술의전당',c:'하모니시스트 박종성, 소프라노 최정원, 뮤지컬 배우 김바울',o:'천안문화재단',p:'P22',f:['G5','G0','G1','G6','G2','G4','G7','G3']},
 {d:'2026-11-05',e:'2026-11-07',dl:'2026.11.05–07',tx:'2026.11.05 (목) – 11.06 (금) 10:30 / 11.07 (토) 15:00',t:'도란도란 클래식 — 베토벤',v:'영등포아트홀',c:'우리 아이 첫 클래식',o:'주최 영등포문화재단 · 협력 서울어텀페스타',p:'P21'}
 ];
 E.forEach((x,i)=>x.id=i);
@@ -683,7 +685,7 @@ const PEOPLE=[
 {r:'단무장',en:'Orchestra Manager',n:'여가영',img:'yeo',b:['베를린 국립음악대학교 “Hanns Eisler” Diplom 및 Konzertexamen 수석 졸업','비엔나 국제 콩쿨 입상 및 특별상 수상','국내외 주요 교향악단과 협연','(현) 한세대 겸임교수, 협성대 · 나사렛대 외래교수']},
 {r:'악장',en:'Concertmaster',n:'나승준',img:'na',b:['연세대학교 학사','드레스덴 국립음대 Master','뷔르츠부르크 국립음대 Meisterklasse','자브뤼켄 국립음대 실내악 Konzertexamen 졸업','(현) 케이필하모닉오케스트라 악장']},
 {r:'국장',en:'Executive Director',n:'김지현',img:'',b:[]},
-{r:'총괄 PD',en:'Executive Producer',n:'안성균',img:'',b:[]},
+{r:'PD',en:'Producer',n:'안성균',img:'',b:[]},
 {r:'기획팀 팀장',en:'Planning Team Lead',n:'이지선',img:'',b:['공연 기획 · 운영','공연 및 협업 문의 담당']}
 ];
 const PRESS=[
