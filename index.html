@@ -524,6 +524,8 @@ form input:focus,form textarea:focus,form select:focus{box-shadow:0 0 0 4px rgba
 @media(max-width:1100px) and (min-width:821px){.node.lead{width:auto;min-width:150px;padding:12px 22px}}
 .band p{text-align:left;word-break:keep-all}
 @media(max-width:720px){.ftag{display:none}footer{padding-bottom:92px}.nav{background:#fff;backdrop-filter:none;-webkit-backdrop-filter:none}}
+.about .big.b2{margin-top:clamp(30px,3.6vw,48px)}
+.about .big{word-break:keep-all;text-align:left}
 </style>
 </head>
 <body class="lock">
@@ -605,7 +607,7 @@ form input:focus,form textarea:focus,form select:focus{box-shadow:0 0 0 4px rgba
 <div id="lb"><button class="x" aria-label="닫기">✕</button><button class="pv" aria-label="이전">‹</button><button class="nx" aria-label="다음">›</button><img alt=""><p></p></div>
 
 <script>
-const A={"P0": "assets/P0.jpg", "P1": "assets/P1.jpg", "P2": "assets/P2.jpg", "P3": "assets/P3.jpg", "P4": "assets/P4.jpg", "P5": "assets/P5.jpg", "P6": "assets/P6.jpg", "P7": "assets/P7.jpg", "P8": "assets/P8.jpg", "P9": "assets/P9.jpg", "P10": "assets/P10.jpg", "P11": "assets/P11.jpg", "P12": "assets/P12.jpg", "P13": "assets/P13.jpg", "P14": "assets/P14.jpg", "P15": "assets/P15.jpg", "P16": "assets/P16.jpg", "P17": "assets/P17.jpg", "P18": "assets/P18.jpg", "P19": "assets/P19.jpg", "P20": "assets/P20.jpg", "P21": "assets/P21.jpg", "P22": "assets/P22.jpg", "F0": "assets/F0.jpg", "F1": "assets/F1.jpg", "F2": "assets/F2.jpg", "F3": "assets/F3.jpg", "F4": "assets/F4.jpg", "F6": "assets/F6.jpg", "F7": "assets/F7.jpg", "F8": "assets/F8.jpg", "F9": "assets/F9.jpg", "F10": "assets/F10.jpg", "F12": "assets/F12.jpg", "F13": "assets/F13.jpg", "F14": "assets/F14.jpg", "F15": "assets/F15.jpg", "F16": "assets/F16.jpg", "F17": "assets/F17.jpg", "F18": "assets/F18.jpg", "F20": "assets/F20.jpg", "F22": "assets/F22.jpg", "F24": "assets/F24.jpg", "F25": "assets/F25.jpg", "F26": "assets/F26.jpg", "F27": "assets/F27.jpg", "F28": "assets/F28.jpg", "F29": "assets/F29.jpg", "F30": "assets/F30.jpg", "F31": "assets/F31.jpg", "G0": "assets/G0.jpg", "G1": "assets/G1.jpg", "G2": "assets/G2.jpg", "G3": "assets/G3.jpg", "G4": "assets/G4.jpg", "G5": "assets/G5.jpg", "G6": "assets/G6.jpg", "G7": "assets/G7.jpg", "kim": "assets/kim.jpg", "young": "assets/young.jpg", "yeo": "assets/yeo.jpg", "na": "assets/na.jpg", "logo": "assets/logo.png", "mark": "assets/mark.png"};
+const A={"P0": "assets/P0.jpg", "P1": "assets/P1.jpg", "P2": "assets/P2.jpg", "P3": "assets/P3.jpg", "P4": "assets/P4.jpg", "P5": "assets/P5.jpg", "P6": "assets/P6.jpg", "P7": "assets/P7.jpg", "P8": "assets/P8.jpg", "P9": "assets/P9.jpg", "P10": "assets/P10.jpg", "P11": "assets/P11.jpg", "P12": "assets/P12.jpg", "P13": "assets/P13.jpg", "P14": "assets/P14.jpg", "P15": "assets/P15.jpg", "P16": "assets/P16.jpg", "P17": "assets/P17.jpg", "P18": "assets/P18.jpg", "P19": "assets/P19.jpg", "P20": "assets/P20.jpg", "P21": "assets/P21.jpg", "P22": "assets/P22.jpg", "H0": "assets/H0.jpg", "H1": "assets/H1.jpg", "H2": "assets/H2.jpg", "H3": "assets/H3.jpg", "H4": "assets/H4.jpg", "H5": "assets/H5.jpg", "H6": "assets/H6.jpg", "H7": "assets/H7.jpg", "F0": "assets/F0.jpg", "F1": "assets/F1.jpg", "F2": "assets/F2.jpg", "F3": "assets/F3.jpg", "F4": "assets/F4.jpg", "F6": "assets/F6.jpg", "F7": "assets/F7.jpg", "F8": "assets/F8.jpg", "F9": "assets/F9.jpg", "F10": "assets/F10.jpg", "F12": "assets/F12.jpg", "F13": "assets/F13.jpg", "F14": "assets/F14.jpg", "F15": "assets/F15.jpg", "F16": "assets/F16.jpg", "F17": "assets/F17.jpg", "F18": "assets/F18.jpg", "F20": "assets/F20.jpg", "F22": "assets/F22.jpg", "F24": "assets/F24.jpg", "F25": "assets/F25.jpg", "F26": "assets/F26.jpg", "F27": "assets/F27.jpg", "F28": "assets/F28.jpg", "F29": "assets/F29.jpg", "F30": "assets/F30.jpg", "F31": "assets/F31.jpg", "G0": "assets/G0.jpg", "G1": "assets/G1.jpg", "G2": "assets/G2.jpg", "G3": "assets/G3.jpg", "G4": "assets/G4.jpg", "G5": "assets/G5.jpg", "G6": "assets/G6.jpg", "G7": "assets/G7.jpg", "kim": "assets/kim.jpg", "young": "assets/young.jpg", "yeo": "assets/yeo.jpg", "na": "assets/na.jpg", "logo": "assets/logo.png", "mark": "assets/mark.png"};
 /* ================= DATA ================= */
 // k:'m' = 연혁에만 표시되는 단체 이정표. p = 포스터, f = 공연 사진
 const SCH24='2024 송파구 학교로 찾아가는 오케스트라';
@@ -644,7 +646,7 @@ const E=[
 {d:'2024-06-27',t:'천안 케이필하모닉스트링 연주회 〈음중미담〉',v:'천안',c:'라클라쎄, 케이필하모닉스트링'},
 {d:'2024-06-28',t:'서울 케이필하모닉스트링 연주회',v:'숭실대학교 문화관'},
 {d:'2024-09-17',t:'청와대 연주회',v:'청와대'},
-{d:'2024-10-05',tm:'17:00',t:'천안예술의전당 개관 12주년 기념공연 Ⅱ — 케이필하모닉오케스트라',v:'천안예술의전당 대공연장',c:'진행 권상희 · 지휘 백윤학 · 소프라노 서선영, 베이스바리톤 길병민, 테너 하만택, 국악앙상블',p:'P12'},
+{d:'2024-10-05',tm:'17:00',t:'천안예술의전당 개관 12주년 기념공연 Ⅱ — 케이필하모닉오케스트라',v:'천안예술의전당 대공연장',c:'진행 권상희 · 지휘 백윤학 · 소프라노 서선영, 베이스바리톤 길병민, 테너 하만택, 예단 김의석과 국악앙상블',o:'주최 천안문화재단 · 천안예술의전당',p:'P12'},
 {d:'2024-10-11',tm:'19:30',t:'케이필하모닉오케스트라와 함께하는 다진 가을 음악회',v:'평택 서부문화예술회관 대공연장',c:'지휘 최선용 · 박형준, 김경희, 고아라, 오정해, 라클라쎄',o:'주최 ㈜다진 · 주관 케이필하모닉오케스트라',p:'P13'},
 {d:'2024-10-12',tm:'19:30',t:'2024 청와대 뮤직 페스티벌 — K-필하모닉오케스트라',v:'청와대 헬기장',c:'지휘 박해원 · 테너 박평준, 테너 김중일, 소프라노 정시영, 소프라노 이은희, 래퍼 청',p:'P10'},
 {d:'2024-10-31',tm:'19:30',t:'제5회 태안예술가곡제 — 태안에서 온 가을편지!',v:'태안군 문화예술회관 대공연장',c:'박인희와 함께',o:'주최 태안군 · 주관 케이필하모닉오케스트라',p:'P9'},
@@ -653,7 +655,7 @@ const E=[
 {d:'2025-04-22',tm:'19:00',t:'아름다운 세 남자의 봄 음악회',v:'청와대 본관',c:'소리꾼 김준수, 성악가 길병민, 래퍼 청',p:'P15'},
 {d:'2025-05-10',t:'청와대 연주회',v:'청와대 야외무대'},
 {d:'2025-09-06',tm:'15:00',t:'천안예술의전당 개관 13주년 기념공연 — 세 남자 이야기 with 케이필하모닉오케스트라',v:'천안예술의전당 대공연장',c:'진행 권상희 · 지휘 백윤학 · 테너 김민석, 바리톤 김기훈, 클래식 색소폰 브랜든 최',p:'P16'},
-{d:'2025-11-26',e:'2025-11-29',dl:'2025.11.26–27, 29',t:'도란도란 클래식 — 모차르트편',v:'영등포아트홀',c:'우리 아이 첫 클래식',o:'주최 영등포문화재단',p:'P14',f:['F25']},
+{d:'2025-11-26',e:'2025-11-29',dl:'2025.11.26–27, 29',t:'도란도란 클래식 — 모차르트편',v:'영등포아트홀',c:'우리 아이 첫 클래식',o:'주최 영등포문화재단',p:'P14',f:['H7','H0','H3','H5','H4','H1','H2','H6','F25']},
 {d:'2025-11-27',tm:'19:30',t:'제6회 태안예술가곡제 — 태안에서 온 가을편지! PART.Ⅱ',v:'태안군문화예술회관 대공연장',o:'주최 태안군 · 주관 케이필하모닉오케스트라',p:'P20'},
 {d:'2026-02-21',t:'겨울방학 어린이 클래식 여행 — 모차르트',v:'송파문화재단',f:['F24']},
 {d:'2026-06-09',t:SCH26+' — 오륜초등학교',v:'오륜초등학교'},
@@ -681,7 +683,7 @@ const PHOTOS=[];PAST.concat(LIVE).forEach(x=>(x.f||[]).forEach(k=>PHOTOS.push({k
 
 const PEOPLE=[
 {r:'대표 겸 단장',en:'CEO and General Manager',n:'김지향',img:'kim',b:['독일 베를린국립대학교 Diplom (의상 디자인 전공)','독일 Maskenbildner Meister Diplom (특수분장 전공)','라무지카 대표 역임','웨스턴심포니오케스트라 단장 역임','국내 음악회 기획 및 정기 연주회 개최','(현) 케이필하모닉오케스트라 단장']},
-{r:'상임지휘자',en:'Principal Conductor',n:'김영준',img:'young',b:['한국예술종합학교 지휘과 예술사 · 예술전문사','차이코프스키 음악원 오케스트라 지휘 전문연주자과정','과천시립아카데미오케스트라 · 과천시립교향악단 부지휘자','(현) 케이필하모닉오케스트라 지휘자']},
+{r:'지휘자',en:'Conductor',n:'김영준',img:'young',b:['한국예술종합학교 지휘과 예술사 · 예술전문사','차이코프스키 음악원 오케스트라 지휘 전문연주자과정','과천시립아카데미오케스트라 · 과천시립교향악단 부지휘자','(현) 케이필하모닉오케스트라 지휘자']},
 {r:'단무장',en:'Orchestra Manager',n:'여가영',img:'yeo',b:['베를린 국립음악대학교 “Hanns Eisler” Diplom 및 Konzertexamen 수석 졸업','비엔나 국제 콩쿨 입상 및 특별상 수상','국내외 주요 교향악단과 협연','(현) 한세대 겸임교수, 협성대 · 나사렛대 외래교수']},
 {r:'악장',en:'Concertmaster',n:'나승준',img:'na',b:['연세대학교 학사','드레스덴 국립음대 Master','뷔르츠부르크 국립음대 Meisterklasse','자브뤼켄 국립음대 실내악 Konzertexamen 졸업','(현) 케이필하모닉오케스트라 악장']},
 {r:'국장',en:'Executive Director',n:'김지현',img:'',b:[]},
@@ -716,7 +718,10 @@ const NOTICE=[];
 const VIDEOS=[
 {id:'kgt1NdiDvS4',d:'2025.11.27',t:'제6회 태안예술가곡제',v:'태안군문화예술회관'},
 {id:'s9TawhtY_QI',d:'2025.11.27',t:'도란도란 클래식 — 모차르트편',v:'영등포아트홀'},
-{id:'QAukRsZ7pfw',d:'2025.09.06',t:'세 남자 이야기 with 케이필하모닉오케스트라 — 하이라이트',v:'천안예술의전당'}
+{id:'QAukRsZ7pfw',d:'2025.09.06',t:'세 남자 이야기 with 케이필하모닉오케스트라 — 하이라이트',v:'천안예술의전당'},
+{id:'MqNGkrh1U04',d:'2024.10.05',t:'천안예술의전당 개관 12주년 기념공연 Ⅱ — 스케치',v:'천안예술의전당'},
+{id:'SueR_yd6qVg',d:'2024.10.05',t:'천안예술의전당 개관 12주년 기념공연 Ⅱ — 공연 1부',v:'천안예술의전당'},
+{id:'klZjPtrQuDE',d:'2024.10.05',t:'천안예술의전당 개관 12주년 기념공연 Ⅱ — 공연 2부',v:'천안예술의전당'}
 ];
 const INQ_MAIL='leejisun99@naver.com';
 // 메인 화면 배경 영상: mp4 파일 경로(예: 'main.mp4')를 넣으면 첫 화면이 영상으로 바뀝니다. 비워 두면 사진이 나옵니다.
@@ -769,21 +774,22 @@ function pgHome(){
     <div class="vgrid">${VIDEOS.slice(0,4).map((v,i)=>`<button class="vc rv" style="--d:${i*.06}s" data-vid="${i}"><div class="im"><img loading="lazy" src="https://i.ytimg.com/vi/${v.id}/hqdefault.jpg" alt="" onerror="this.remove()"></div><div class="d">${v.d}</div><div class="t">${esc(v.t)}</div><div class="v">${esc(v.v||'')}</div></button>`).join('')}</div>
   </div></section>
   <section class="blk cream"><div class="wrap about">
-    <div class="rv"><p class="big">2018년 창단 이래,<br><em>K-클래식</em>의 부흥과 발전을 이끄는<br>민간 오케스트라</p>
-      <p>국내외 최고의 연주자와 신인 연주자가 함께 성장하는 무대, 사회적 약자를 위한 좌석 나눔과 공연 기부로 클래식의 저변을 넓혀 갑니다.</p>
+    <div class="rv"><p class="big">지역사회와 호흡하며<br>음악으로 세상에 온기를 전하는<br><em>K-필하모닉 오케스트라</em></p>
+      <p>K-필하모닉 오케스트라는 클래식 음악의 높은 문턱을 낮추고, 누구나 일상 속에서 문화적 감동을 누릴 수 있도록 앞장서는 전문 예술 단체입니다.</p>
       <div style="margin-top:22px"><a class="pill dark" href="#/about">오케스트라 소개</a></div></div>
     <div class="ph2 rv" style="--d:.12s;aspect-ratio:3/2"><img loading="lazy" src="${A.G5}" alt="케이필하모닉오케스트라"></div>
   </div></section>
   <section class="blk"><div class="wrap"><div class="band rv"><div><h2>음악으로 꿈꾸는 아름다운 세상,<br>후원으로 함께해 주세요</h2><p>여러분의 후원은 더 많은 관객에게 클래식을 전하는 힘이 됩니다.</p></div><a class="pill white" href="#/support">후원회 가입 안내 →</a></div></div></section>`;
 }
 function pgAbout(){
-  return head('오케스트라 소개','오케스트라 소개','K-필하모닉오케스트라(KPO)는 좋은 음악으로 청중의, 청중에 의한, 청중을 위한 장을 만들어 갑니다.')+
+  return head('오케스트라 소개','오케스트라 소개','')+
   `<section class="blk" style="padding-top:20px"><div class="wrap about">
-    <div class="rv"><p class="big">“좋은 음악으로 <em>청중의, 청중에 의한, 청중을 위한</em>” 무대</p>
-    <p>김지향 단장은 대한민국의 민간오케스트라로서 K-필하모닉오케스트라의 브랜드 가치를 드높이고 창출하며, 우리의 연주자는 물론 단원 모두에게 ‘좋은 음악으로 청중의, 청중에 의한, 청중을 위한’ 장을 만들어 나가고자 최선의 노력을 기울이고 있다.</p>
-    <p>K-필하모닉오케스트라는 2018년 창단되어 국내외 최고의 권위를 자랑하는 연주자를 비롯하여 신인 연주자를 발굴, 국내 정상급으로 성장을 도모하며, 국내외 다양한 문화교류를 통해 K-클래식을 부흥시키고 그 발전의 견인차로서 음악계의 한류를 선도하고 있다.</p>
-    <p>그동안 세종문화예술회관, 구미문화예술회관, 경주예술의전당, 광주문화예술회관, 안동문화예술의전당, 천안예술의전당, 청와대 연주회 등 다양한 콘서트 및 태안가곡제를 통해 한국 창작 가곡의 발전 및 활성화에 노력을 기울이고 있다.</p>
-    <p>또한 사회적 약자를 위해 공연마다 좌석을 마련하는 등 지속적인 공연 기부 활동으로 사회에 환원, 클래식 저변확대에 책임을 다하며 클래식 음악의 새로운 변화를 주도함으로써 가장 주목받는 오케스트라로 성장하고 있다.</p></div>
+    <div class="rv"><p class="big">지역사회와 호흡하며 음악으로 세상에 온기를 전하는 <em>K-필하모닉 오케스트라</em></p>
+    <p>K-필하모닉 오케스트라는 클래식 음악의 높은 문턱을 낮추고, 누구나 일상 속에서 문화적 감동을 누릴 수 있도록 앞장서는 전문 예술 단체입니다. 정통 클래식의 깊이 있는 예술성을 바탕으로 세대와 계층을 아우르는 대중적이고 친근한 프로그램을 기획하며, 전국의 문화 소외지역과 학교, 지역 축제를 찾아가는 활발한 연주 활동을 펼치고 있습니다.</p>
+    <p>특히 최고의 기량을 갖춘 연주자들과 완성도 높은 편곡을 통해 단순한 음악 감상을 넘어선 치유와 화합의 장을 만들어갑니다. 음악을 통한 선한 영향력으로 지역 주민과 청년들에게 희망의 메시지를 전하며, 대한민국 클래식 대중화의 새로운 지평을 열어가는 오케스트라입니다.</p>
+    <p class="big b2">압도적인 앙상블과 깊은 울림으로 감동을 디자인하는 <em>K-필하모닉 오케스트라</em></p>
+    <p>K-필하모닉 오케스트라는 국내외 유수의 무대에서 활약하며 탄탄한 실력을 인정받은 전문 연주자들로 구성된 오케스트라입니다. 오페라, 교향곡부터 크로스오버와 대중음악 협업에 이르기까지 장르를 넘나드는 폭넓은 레퍼토리를 소화하며 독창적이고 세련된 무대를 선보이고 있습니다.</p>
+    <p>정교한 하모니와 다채로운 스토리텔링이 있는 기획력을 바탕으로 관객과 깊이 교감하며, 매 공연마다 찬사와 감동을 이끌어내고 있습니다. 끊임없는 도전과 예술적 완성도를 향한 열정으로 클래식 음악의 진정한 가치를 전달하는 대한민국 대표 오케스트라입니다.</p></div>
     <div class="ph2 rv" style="--d:.15s"><img src="${A.G4}" alt="케이필하모닉오케스트라 연주 모습"></div>
   </div>
   </section>
