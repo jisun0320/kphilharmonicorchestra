@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://kphilharmonicorchestra.com/sitemap.xml
