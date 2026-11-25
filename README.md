@@ -1,13 +1,10 @@
-# 케이필하모닉오케스트라 홈페이지
+# 케이필하모닉오케스트라 (K-필하모닉오케스트라) 홈페이지
+
+https://kphilharmonicorchestra.com
 
 - `index.html` : 홈페이지 본체 (공연·보도기사·영상 목록도 이 파일 안에 있습니다)
-- `assets/` : 포스터(P), 공연 사진(F, G), 프로필 사진, 로고
+- `*.jpg`, `*.png` : 포스터(P), 공연 사진(F, G, H), 프로필 사진, 로고
+- `CNAME`, `robots.txt`, `sitemap.xml` : 도메인 연결과 검색 등록용 파일 (지우지 마세요)
 
-## GitHub Pages로 공개하는 방법
-1. GitHub에서 새 저장소(Repository)를 Public으로 만듭니다.
-2. `index.html`과 `assets` 폴더를 저장소 최상위에 올립니다. (Add file → Upload files 화면에 `assets` 폴더를 통째로 끌어다 놓아야 폴더째 올라갑니다)
-3. 저장소의 Settings → Pages → Branch를 `main` / `(root)`로 선택하고 Save.
-4. 1~2분 뒤 `https://<아이디>.github.io/<저장소이름>/` 주소로 접속됩니다.
-
-## 공연 문의 메일
-문의는 `index.html` 안의 `INQ_MAIL` 주소로 전달됩니다. 처음 문의가 접수될 때 해당 메일로 인증 메일이 오며, 승인해야 이후 문의가 자동 전달됩니다.
+## 업데이트 방법
+저장소에서 Add file → Upload files 로 이 폴더 안의 파일을 모두 끌어다 놓고 Commit 하면 됩니다. 같은 이름의 파일은 새 것으로 바뀝니다.
